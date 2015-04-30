@@ -1,4 +1,4 @@
-```
+```javascript
 
 // Comments are like C. Single-line comments start with two slashes,
 /* and multiline comments start with slash-star
