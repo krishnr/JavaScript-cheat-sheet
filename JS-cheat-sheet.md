@@ -16,14 +16,27 @@ Here's what all those big words above mean:
 
 ## Quick Access Links
 1. [Basics](#basics)
+    1. [Primitives](#primitives)
+    2. [Operators](#operators)
 2. [More Basic Syntax](#syntax)
-3. [Objects and Functions](#objects)
-4. [Function Execution, Variable Scope, Closures & Callbacks](#closures)
+    1. [Variables](#variables)
+    2. [Arrays](#arrays)
+    3. [Logic and Control Structures](#logic)
+3. [Objects and Functions](#objects-and-functions)
+    1. [Objects](#objects)
+    2. [Functions](#functions)
+    3. [Bind, Call and Apply](#bind)
+4. [Function Execution, Variable Scope, Closures & Callbacks](#execution)
+    1. [Hoisting](#hoisting)
+    2. [Scope Chain](#scope-chain)
+    3. [Closures](#closures)
+    4. [Callbacks](#callbacks)
 5. [Object-Oriented JS and Prototypal Inheritance](#prototypes)
 6. [New ES6 stuff](#es6)
 
 <a name="basics"></a>
-##1. Basics 
+## 1. Basics 
+__Everything__ in JS is either an object or a primitive.
 ```javascript
 
 // This is a single line comment,
@@ -34,12 +47,11 @@ multiline comment */
 // However, the JS engine will (usually) automatically insert semicolons upon seeing '\n'
 // This can cause some weird behaviour so ALWAYS use semicolons
 doStuff();
+```
+<a name="primitives"></a>
+### i. Primitives: Number, String, Boolean (and some special ones)
 
-// EVERYTHING in JS is either an object or a primitive
-
-///////////////////////////////////
-// i. Primitives: Number, String, Boolean (and some special ones)
-
+```javascript
 // JavaScript has one number type (which is a 64-bit IEEE 754 double).
 // Doubles have a 52-bit mantissa, which is enough to store integers
 //    up to about 9✕10¹⁵ precisely.
@@ -101,10 +113,10 @@ false;
 
 // ES6 also introduces Symbol as a new primitive type
 // But I'll add that on here once I actually figure out what it is
-
-///////////////////////////////////
-// ii. Operators aka weirdly written functions
-
+```
+<a name="operators"> </a>
+### ii. Operators aka weirdly written functions
+```javascript
 // Operators have both a precedence (order of importance, like * before +) 
 // and an associativity (order of evaluation, like left-to-right)
 // A table of operators can be found here 
@@ -168,11 +180,9 @@ x = x || "default"
 
 <a name="syntax"></a>
 ## 2. More Basic Syntax 
-
+<a name="variables"></a>
+### i. Variables
 ```javascript
-///////////////////////////////////
-// i. Variables
-
 // Variables are declared with the `var` keyword. JavaScript is dynamically
 // typed, so you don't need to specify type. Assignment uses a single `=`
 // character.
@@ -186,10 +196,11 @@ someOtherVar = 10;
 
 // Variables declared without being assigned to are set to undefined.
 var someThirdVar; // = undefined
+```
 
-///////////////////////////////////
-// ii. Arrays
-
+<a name="arrays"> </a>
+### ii. Arrays
+```javascript
 // Arrays are ordered lists of values, of any type.
 var myArray = ["Hello", 45, true];
 
@@ -203,10 +214,11 @@ myArray.length; // = 4
 
 // Add/Modify at specific index
 myArray[3] = "Hello";
+```
 
-///////////////////////////////////
-// iii. Logic and Control Structures
-
+<a name="logic"></a>
+### iii. Logic and Control Structures
+```javascript
 // The `if` structure works as you'd expect.
 var count = 1;
 if (count === 3){
@@ -263,13 +275,13 @@ switch (grade) {
 
 ```
 
-<a name="objects"></a>
+<a name="objects-and-functions"></a>
 ##3. Objects and Functions 
 
+<a name="objects"></a>
+### i. Objects
+An object is simply an unordered collection of key-value pairs.
 ```javascript
-// i. Objects
-
-// An object is simply an unordered collection of key-value pairs.
 // They can be made literally:
 var myObj = {key1: "Hello", key2: "World"};
 // or using the Object constructor:
@@ -279,8 +291,9 @@ var myObj = new Object();
 // JavaScript identifier. Values can be any type including other objects.
 var myObj = {myKey: "myValue", "my other key": 4};
 
-// Objects can even contain functions
-// When a function is attached to an object, it is called a method
+// Objects can even contain functions (called methods)
+// When functions attached to an object are called, they can access the object
+// they're attached to using the `this` keyword.
 var myObj = { 
   name: "Destiny's Child",
   sayMyName: function() {
@@ -317,20 +330,17 @@ JSON.stringify(myObj);
 
 // JSON => JS Object
 JSON.parse(json_stuff);
+```
 
+<a name="functions"></a>
+### ii. Functions
+Functions are special kinds of objects! Functions can have their own methods and properties just like other objects, but they're rarely used in that way. 
 
+Remember, functions in JS are first-class. Meaning they can be assigned and passed just like any other variable can.
 
-///////////////////////////////////
-// ii. Functions
+Functions are special in that they have an optional name property and a code property (which is the body of the function that actually does stuff). The function's code is executed by the invocation operator `()`.
 
-// Functions are Objects too!
-// Functions can have their own methods and properties, but they're rarely used
-// Functions can have an optional name and optional code (the content of the function--can be empty)
-// The function's code is executed by the invocation operator '()'
-// Functions have a special method called 'arguments' which is an array-like object 
-// of all the parameters passed into a function
-// It is array-like because it doesn't have any of the methods that arrays have
-
+```javascript
 // JavaScript functions are declared with the `function` keyword.
 // This is a function statement
 function myFunction(thing){
@@ -363,25 +373,26 @@ function myFunction(){
 setTimeout(myFunction, 5000);
 // Note: setTimeout isn't part of the JS language, but is provided by browsers
 // and Node.js.
+```
+Function objects don't even have to be declared with a name - you can write an anonymous function definition directly into the arguments of another.
 
-// Function objects don't even have to be declared with a name - you can write
-// an anonymous function definition directly into the arguments of another.
+```javascript
 setTimeout(function(){
+    console.log("It's been 5 seconds!);
     // this code will be called in 5 seconds' time
 }, 5000);
-
-// This has led to a common pattern of "immediately-executing anonymous
-// functions", which prevent temporary variables from leaking into the global
-// scope.
-// The function expression is wrapped in parenthesis and then is invoked using '()'
+```
+This has led to a common pattern of "immediately-executing anonymous functions", which prevent temporary variables from leaking into the global scope. The function expression is wrapped in parenthesis and then is invoked using `()`
+``` javascript
 (function(){
     var temporary = 5;
 })();
 temporary; // raises ReferenceError
 permanent; // = 10
+```
 
-// Pass by Value vs Pass by Reference
-
+An important distinction: primitives __Pass by Value__ while objects __Pass by Reference__
+```javascript
 // Primitives are passed by value
 var i = 2;
 function double(i){  i*2;  } // another i is created with the same value in a different execution context
@@ -395,11 +406,10 @@ function bestSuperhero(obj){
 }
 bestSuperhero(obj);
 console.log(obj.hero); // = "Batman"
+```
+The `this` keyword within methods, always refers to the object that the method is tied to. However, if the method has an inner function, its `this` refers to the global object. Some regard this as a bug in JS, so the good practice is to create and use a variable called `self`.
 
-// The 'this' keyword within methods, always refers to the object that the method is tied to
-// However, if the method has an inner function, its 'this' refers to the global object
-// Some regard this as a bug in JS, so the good practice is to create and use a var called self
-
+```javascript
 var c = {
     name: 'The c object',
     log: function() {
@@ -415,13 +425,13 @@ var c = {
         console.log(self);
     }
 }
-
 c.log(); // outputs "Updated again! The c object"
+```
 
-
-// Functions that aren't tied to objects can still use 'this'
-// and still be useful
-
+<a name="bind"></a>
+### iii. Bind, Call and Apply
+Functions that aren't tied to objects can use `this` and still be useful. Consider this example.
+```javascript
 var cow = { says: "moo" };
 var dog = { says: "woof" };
 var pig = { says: "oink" };
@@ -431,12 +441,11 @@ function speak(times) {
     console.log(this.says);
   }
 }
-
 speak(4); // error because this is the global object which doesn't have a 'says' property
+```
+To use speak, we need to use the .bind, .call or .apply methods, which are available to __all__ functions. The first parameter of these functions is the object which becomes `this` within the function.
 
-// To use speak, we need to use the .bind, .call or .apply methods which are available to ALL functions
-// The first parameter of these functions is the object which becomes 'this'
-
+```javascript
 // bind creates a copy of the function it's being called on
 var cowSpeak = speak.bind(cow);
 cowSpeak(4); // outputs "moo moo"
@@ -448,9 +457,9 @@ speak.call(dog, 3); // outputs "woof woof woof"
 // apply directly executes the function with the first parameter being 'this'
 // and all the other function parameters being passed in as an array
 speak.apply(pig, [1]); // outputs "oink"
-
-
-// Function borrowing
+```
+The call and apply methods allow us to do something called __Function Borrowing__.
+```javascript
 var darthVader = { 
   son: "Luke",
   saying: function(){
@@ -462,9 +471,9 @@ var luke = { son: "Ben" };
 darthVader.saying.call(luke);
 // borrowing Darth Vader's saying
 // outputs "Ben, I am your father"
-
-
-// Function Currying
+```
+The bind method allows us to do __Function Currying__.
+```javascript
 // Creating a copy of a function with preset parameters
 function multiply(a,b){ return a*b }
 
@@ -475,7 +484,7 @@ double(16); // outputs 32
 
 ```
 
-<a name="closures"></a>
+<a name="execution"></a>
 ## 4. Function Execution, Variable Scope, Closures & Callbacks 
 
 A few important concepts:
@@ -485,6 +494,8 @@ A few important concepts:
 - The __Execution Context__ consists of the environment (state of variables) of the function currently being evaluated. It also includes 'this' and a reference to the outer environment (aka what object is sitting outside this function _lexically_)
 - The __Execution Stack__ or __Call Stack__ is the "stack" of execution contexts with the global execution context being the bottommost. When the program flow enters a function, a new execution context is popped onto the call stack, and when the function returns, it is popped off.
 
+<a name="hoisting"></a>
+### i. Hoisting
 Before actually executing any of the code, the JS engine first looks at all the variable declarations and function statements and sets aside some memory space for them effectively moving them to the top of the code. This is known as __hoisting__.
 ```javascript
 // Variable example
@@ -521,6 +532,8 @@ b = function() {}
 
 JS is always synchronous (executing code 1 line at a time and in-order) and single-threaded (only 1 command at a time). However, jQuery, event handlers and AJAX calls make use of callbacks which appear to run asynchronously. AJAX calls are delegated off to a different part of the browser (outside the JS engine) which is why they are run asynchronously. When the call returns, or if there's a user click, then these events fill up the Event Queue. The JS Engine only handles the Event Queue when the Execution Stack is empty. 
 
+<a name="scope-chain"></a>
+### ii. Scope Chain
 To find a variable when functions are running, JS looks further than just the variable environment of the currently executing context, it also looks at the outer environment (the environment to which this function is _lexically_ attached). This process continues looking all the way down to the global environment in a process known as the __scope chain_.
 
 ```javascript
@@ -549,6 +562,8 @@ if (true){
 i; // = 5 - not undefined as you'd expect in a block-scoped language
 ```
 
+<a name="closures"></a>
+### iii. Closures
 One of JS's most powerful features is __closures__. Whenever a function is nested within another function, the inner function has access to all the outer function's variables even after the outer function exits.
 After the outer function exits, it is popped off the Execution Stack, however if any of its variables are referenced in the inner function, then those variables are "closed into" the inner function's Execution Context and are accessible by the inner function.
 
@@ -594,6 +609,9 @@ fs[2]();
 
 // Avoid creating functions in loops. It will lead to bad behaviour.
 ```
+
+<a name="callbacks"></a>
+### iv. Callbacks
 __Callbacks__ are simply functions passed as arguments to other functions to be run when the other functions are finished.
 
 ```javascript
