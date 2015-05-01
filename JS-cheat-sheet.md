@@ -374,7 +374,7 @@ setTimeout(myFunction, 5000);
 // Note: setTimeout isn't part of the JS language, but is provided by browsers
 // and Node.js.
 ```
-Function objects don't even have to be declared with a name - you can write an anonymous function definition directly into the arguments of another.
+Function objects don't even have to be declared with a name - you can write an __anonymous function__ definition directly into the arguments of another.
 
 ```javascript
 setTimeout(function(){
@@ -382,7 +382,7 @@ setTimeout(function(){
     // this code will be called in 5 seconds' time
 }, 5000);
 ```
-This has led to a common pattern of "immediately-executing anonymous functions", which prevent temporary variables from leaking into the global scope. The function expression is wrapped in parenthesis and then is invoked using `()`
+This has led to a common pattern of __"immediately-executing anonymous functions"__, which prevent temporary variables from leaking into the global scope. The function expression is wrapped in parenthesis and then is invoked using `()`
 ``` javascript
 (function(){
     var temporary = 5;
