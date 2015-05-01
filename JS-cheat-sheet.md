@@ -14,7 +14,7 @@ Here's what all those big words above mean:
 - <a name="object-oriented"></a>__Object-Oriented Programming__: Object based programming
 - <a name="functional"></a>__Functional Programming__: Function based programming
 
-## Quick Access
+## Quick Access Links
 1. [Basics](#basics)
 2. [More Basic Syntax](#syntax)
 3. [Objects and Functions](#objects)
@@ -22,7 +22,8 @@ Here's what all those big words above mean:
 5. [Object-Oriented JS and Prototypal Inheritance](#prototypes)
 6. [New ES6 stuff](#es6)
 
-##1. Basics <a name="basics"></a>
+<a name="basics"></a>
+##1. Basics 
 ```javascript
 
 // This is a single line comment,
@@ -165,7 +166,8 @@ x = x || "default"
 
 ```
 
-## 2. More Basic Syntax <a name="syntax"></a>
+<a name="syntax"></a>
+## 2. More Basic Syntax 
 
 ```javascript
 ///////////////////////////////////
@@ -260,7 +262,9 @@ switch (grade) {
 }
 
 ```
-##3. Objects and Functions <a name="objects"></a>
+
+<a name="objects"></a>
+##3. Objects and Functions 
 
 ```javascript
 // i. Objects
@@ -471,7 +475,8 @@ double(16); // outputs 32
 
 ```
 
-## 4. Function Execution, Variable Scope, Closures & Callbacks <a name="closures"></a>
+<a name="closures"></a>
+## 4. Function Execution, Variable Scope, Closures & Callbacks 
 
 A few important concepts:
 - __Global__ means not inside a function. The global object is 'window' in browsers.
@@ -607,7 +612,8 @@ setTimeout(function(){
 }, 3000);
 ```
 
-## 5. Object-Oriented JS and Prototypal Inheritance <a name="prototypes"></a>
+<a name="prototypes"></a>
+## 5. Object-Oriented JS and Prototypal Inheritance 
 ```javascript
 ///////////////////////////////////
 // i. Objects; Constructors and Prototypes
@@ -788,7 +794,8 @@ if (Object.create === undefined){ // don't overwrite it if it exists
 
 ```
 
-##6. New ES6 stuff <a name="es6"></a>
+<a name="es6"></a>
+##6. New ES6 stuff 
 
 ```javascript
 
