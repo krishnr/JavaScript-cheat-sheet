@@ -31,7 +31,11 @@ Here's what all those big words above mean:
     2. [Scope Chain](#scope-chain)
     3. [Closures](#closures)
     4. [Callbacks](#callbacks)
-5. [Object-Oriented JS and Prototypal Inheritance](#prototypes)
+5. [Object-Oriented JS and Prototypal Inheritance](#object-oriented)
+    1. [Constructors](#constructors)
+    2. [Prototypes](#prototypes)
+    3. [Prototypal Inheritance](#prototypal-inheritance)
+    4. [Built-In Constructors](#built-in)
 6. [New ES6 stuff](#es6)
 
 <a name="basics"></a>
@@ -630,90 +634,32 @@ setTimeout(function(){
 }, 3000);
 ```
 
-<a name="prototypes"></a>
+<a name="object-oriented"></a>
 ## 5. Object-Oriented JS and Prototypal Inheritance 
+
+<a name="constructors"></a>
+### i. Function Constructors
+When you call a function with the `new` keyword, a new object is created in memory, and is made available to the function via the `this` keyword. Functions designed to be called like that are called constructors.
 ```javascript
-///////////////////////////////////
-// i. Objects; Constructors and Prototypes
-
-// Objects can contain functions.
-var myObj = {
-    myFunc: function(){
-        return "Hello world!";
-    }
-};
-myObj.myFunc(); // = "Hello world!"
-
-// When functions attached to an object are called, they can access the object
-// they're attached to using the `this` keyword.
-myObj = {
-    myString: "Hello world!",
-    myFunc: function(){
-        return this.myString;
-    }
-};
-myObj.myFunc(); // = "Hello world!"
-
-// What this is set to has to do with how the function is called, not where
-// it's defined. So, our function doesn't work if it isn't called in the
-// context of the object.
-var myFunc = myObj.myFunc;
-myFunc(); // = undefined
-
-// Inversely, a function can be assigned to the object and gain access to it
-// through `this`, even if it wasn't attached when it was defined.
-var myOtherFunc = function(){
-    return this.myString.toUpperCase();
-}
-myObj.myOtherFunc = myOtherFunc;
-myObj.myOtherFunc(); // = "HELLO WORLD!"
-
-// We can also specify a context for a function to execute in when we invoke it
-// using `call` or `apply`.
-
-var anotherFunc = function(s){
-    return this.myString + s;
-}
-anotherFunc.call(myObj, " And Hello Moon!"); // = "Hello World! And Hello Moon!"
-
-// The `apply` function is nearly identical, but takes an array for an argument
-// list.
-
-anotherFunc.apply(myObj, [" And Hello Sun!"]); // = "Hello World! And Hello Sun!"
-
-// This is useful when working with a function that accepts a sequence of
-// arguments and you want to pass an array.
-
-Math.min(42, 6, 27); // = 6
-Math.min([42, 6, 27]); // = NaN (uh-oh!)
-Math.min.apply(Math, [42, 6, 27]); // = 6
-
-// But, `call` and `apply` are only temporary. When we want it to stick, we can
-// use `bind`.
-
-var boundFunc = anotherFunc.bind(myObj);
-boundFunc(" And Hello Saturn!"); // = "Hello World! And Hello Saturn!"
-
-// `bind` can also be used to partially apply (curry) a function.
-
-var product = function(a, b){ return a * b; }
-var doubler = product.bind(this, 2);
-doubler(8); // = 16
-
-// When you call a function with the `new` keyword, a new object is created, and
-// made available to the function via the this keyword. Functions designed to be
-// called like that are called constructors.
-
 var MyConstructor = function(){
+    // public variables are declared using this
     this.myNumber = 5;
+    // private variables are declared using var
+    var secretNum = 4;
+    // public getter for the private variable
+    this.getSecret = function(){ return secretNum };
 }
-myNewObj = new MyConstructor(); // = {myNumber: 5}
+myNewObj = new MyConstructor(); // = {myNumber: 5, secretNum: 4}
 myNewObj.myNumber; // = 5
+myNewObj.secretNum; // undefined
+myNewObj.getSecret(); // = 4
 
-// Every JavaScript object has a 'prototype'. When you go to access a property
-// on an object that doesn't exist on the actual object, the interpreter will
-// look at its prototype.
+```
 
+<a name="prototypes">
+### ii. Prototypes
+Every JavaScript object has a 'prototype' property, which is simply a reference to another object. When you go to access a property that doesn't exist on the actual object, the interpreter will look at its prototype. If it doesn't exist on the prototype, it'll look at the prototype's prototype. It will keep looking down this __prototype chain__ until it hits the base object Object, which doesn't have a prototype. 
+```javascript
 // Some JS implementations let you access an object's prototype on the magic
 // property `__proto__`. While this is useful for explaining prototypes it's not
 // part of the standard; we'll get to standard ways of using prototypes later.
@@ -745,17 +691,21 @@ myObj.myBoolean; // = true
 // reflected everywhere.
 myPrototype.meaningOfLife = 43;
 myObj.meaningOfLife; // = 43
+```
 
-// We mentioned that `__proto__` was non-standard, and there's no standard way to
-// change the prototype of an existing object. However, there are two ways to
-// create a new object with a given prototype.
+<a name="prototypal-inheritance"></a>
+### iii. Prototypal Inheritance aka setting prototypes of new objects
 
+Accessing `__proto__` is non-standard, and there are no standard ways to change the prototype of an existing object. However, there are two ways to create a new object with a given prototype.
+```javascript
 // The first is Object.create, which is a recent addition to JS, and therefore
 // not available in all implementations yet.
 var myObj = Object.create(myPrototype);
 myObj.meaningOfLife; // = 43
+```
+Every JS function also has a property called 'prototype'. When used as a normal function, the 'prototype' property is not used. Only when functions are used as constructors with the `new` keyword, the 'prototype' sets the prototype of the object being created.
 
-// The second way, which works anywhere, has to do with constructors.
+```javascript
 // Constructors have a property called prototype. This is *not* the prototype of
 // the constructor function itself; instead, it's the prototype that new objects
 // are given when they're created with that constructor and the new keyword.
@@ -769,7 +719,11 @@ var myNewObj2 = new MyConstructor();
 myNewObj2.getMyNumber(); // = 5
 myNewObj2.myNumber = 6
 myNewObj2.getMyNumber(); // = 6
+```
 
+<a name="built-in"> </a>
+### iv. Built-In Constructors
+```javascript
 // Built-in types like strings and numbers also have constructors that create
 // equivalent wrapper objects.
 var myNumber = 12;
@@ -793,12 +747,10 @@ String.prototype.firstCharacter = function(){
     return this.charAt(0);
 }
 "abc".firstCharacter(); // = "a"
-
-// This fact is often used in "polyfilling", which is implementing newer
-// features of JavaScript in an older subset of JavaScript, so that they can be
-// used in older environments such as outdated browsers.
-
-// For instance, we mentioned that Object.create isn't yet available in all
+```
+__Polyfilling__ takes advantage of the fact that we can modify the built-in prototypes to implement newer features of JavaScript in an older subset of JavaScript, so that they can be used in older environments such as outdated browsers.
+```javascript
+// For instance, Object.create isn't yet available in all
 // implementations, but we can still use it with this polyfill:
 if (Object.create === undefined){ // don't overwrite it if it exists
     Object.create = function(proto){
@@ -816,5 +768,5 @@ if (Object.create === undefined){ // don't overwrite it if it exists
 ##6. New ES6 stuff 
 
 ```javascript
-
+// Coming as soon as I get to reading and understanding the new ES6 features!
 ```
