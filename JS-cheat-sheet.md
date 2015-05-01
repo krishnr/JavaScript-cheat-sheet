@@ -36,7 +36,8 @@ Here's what all those big words above mean:
     2. [Prototypes](#prototypes)
     3. [Prototypal Inheritance](#prototypal-inheritance)
     4. [Built-In Constructors](#built-in)
-6. [New ES6 stuff](#es6)
+6. [Bugs and Error Handling](#bugs)
+7. [New ES6 stuff](#es6)
 
 <a name="basics"></a>
 ## 1. Basics 
@@ -776,8 +777,19 @@ if (Object.create === undefined){ // don't overwrite it if it exists
 
 ```
 
+<a name="bugs"> </a>
+## 6. Bugs and Error Handling
+
+```javascript
+// You can opt in to tell the JS engine to be very strict in its interpretation
+// It must go at the top of the file to interpret the whole file in strict mode
+// Or at the top of a function, to make just that function strict
+"use strict"
+```
+
+
 <a name="es6"></a>
-##6. New ES6 stuff 
+##7. New ES6 stuff 
 
 ```javascript
 // Coming as soon as I get to reading and understanding the new ES6 features!
