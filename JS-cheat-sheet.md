@@ -180,6 +180,18 @@ x = x || "default"
 // but a problem arises if x = 0. It exists, but will coerce to false
 // be wary of this
 
+// figuring out types of literals and vars
+typeof "Hello"; // = "string"
+typeof 42; // = "number"
+typeof undefined // = "undefined"
+typeof null // = 'object' THIS IS A JS BUG!
+
+// figuring out if an object is an instance of another object
+// checks all the way down the prototype chain
+var x = {}
+x instanceof Object // = true
+x instanceof Function // = false
+
 ```
 
 <a name="syntax"></a>
