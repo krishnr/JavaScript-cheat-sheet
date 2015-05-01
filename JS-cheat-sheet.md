@@ -1,6 +1,26 @@
+# JavaScript Cheat Sheet
+
+![Unofficial JS logo-from Wikipedia](http://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/640px-Unofficial_JavaScript_logo_2.svg.png?1430429358937)
+
+JavaScript (JS) is a dynamic [interpreted language](#interpreted-lang) that powers the web. It is widely used in browsers (where JS scripts are interpreted by [JavaScript engines](#javascript-engine) like Chrome's [V8](https://developers.google.com/v8/)) and increasingly on servers (on a [Node.js](https://nodejs.org) runtime environment).
+
+JS is a [prototype-based](#prototype-based) scripting language with [first-class functions](#first-class-functions) and [dynamic typing](#dynamic-type). Because of its super flexibility, JS supports multiple styles of programming including [imperative](#imperative), [object-oriented](#object-oriented) and [functional](#functional).
+
+Here's what all those big words above mean: 
+- <a name="interpreted-lang"></a>__Interpreted Language__: a language (eg. JS, Python) in which most of its implementations execute instructions directly, without previously compiling a program into machine-language instructions like compiled languages do (eg. C++)
+- <a name="javascript-engine"></a>__JavaScript Engine__: a virtual machine that interprets and executes JS
+- <a name="prototype-based"></a>__Prototype-Based__: unlike classical OOP with classes and objects, in JS, objects are cloned from other objects, and all objects have _prototypes_ (kinda like the template they inherit from)
+- <a name="first-class-functions"></a>__First-Class Functions__:  JS supports passing functions as arguments to other functions, returning them as the values from other functions, and assigning them to variables or storing them in data structures
+- <a name="dynamic-type"></a>__Dynamically Typed__: The "type" of all variables is only interpreted at run-time unlike statically typed languages where all variables have a type at compile-time
+- <a name="imperative"></a>__Imperative Programming__: Statement based programming
+- <a name="object-oriented"></a>__Object-Oriented Programming__: Object based programming
+- <a name="functional"></a>__Functional Programming__: Function based programming
+
+
+##1. Basics
 ```javascript
 
-// Comments are like C. Single-line comments start with two slashes,
+// Comments are the same as in C++. Single-line comments start with two slashes,
 /* and multiline comments start with slash-star
    and end with star-slash */
 
@@ -10,6 +30,8 @@ doStuff();
 // ... but they don't have to be, as semicolons are automatically inserted
 // wherever there's a newline, except in certain cases.
 doStuff()
+
+//
 
 // Because those cases can cause unexpected results, we'll keep on using
 // semicolons in this guide.
