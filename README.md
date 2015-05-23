@@ -41,6 +41,8 @@ Here's what all those big words above mean:
 6. [Bugs and Error Handling](#bugs)
 7. [New ES6 stuff](#es6)
 
+TODO: Add 8. Useful Libraries (LoDash, jQuery), 9. Javascript in the browser, 10. NodeJS
+
 <a name="basics"></a>
 ## 1. Basics 
 __Everything__ in JS is either an object or a primitive.
@@ -395,13 +397,15 @@ setTimeout(myFunction, 5000);
 ```
 Function objects don't even have to be declared with a name - you can write an __anonymous function__ definition directly into the arguments of another.
 
-```javascript
+``` javascript
 setTimeout(function(){
-    console.log("It's been 5 seconds!);
-    // this code will be called in 5 seconds' time
+    console.log("It's been 5 seconds!");
+    // this code will be called in 5 seconds time
 }, 5000);
 ```
+
 This has led to a common pattern of __"immediately-executing anonymous functions"__, which prevent temporary variables from leaking into the global scope. The function expression is wrapped in parenthesis and then is invoked using `()`
+
 ``` javascript
 (function(){
     var temporary = 5;
@@ -793,6 +797,188 @@ if (Object.create === undefined){ // don't overwrite it if it exists
 <a name="es6"></a>
 ##7. New ES6 stuff 
 
+### Arrows
+Arrows are a function shorthands for anonymous functions used with the `=>` syntax. They pass the outside lexical scope (ie. `this`) to the function.
 ```javascript
-// Coming as soon as I get to reading and understanding the new ES6 features!
+// Expression bodies
+var odds = evens.map(v => v + 1);
+var nums = evens.map((v, i) => v + i);
+
+// Statement bodies
+nums.forEach(v => {
+  if (v % 5 === 0)
+    fives.push(v);
+});
+
+// Lexical this
+var bob = {
+  _name: "Bob",
+  _friends: [],
+  printFriends() {
+    this._friends.forEach(f =>
+      console.log(this._name + " knows " + f));
+  }
+}
 ```
+
+### Classes
+Object-oriented syntactic sugar for the prototypal inheritance pattern.
+
+``` javascript
+class SkinnedMesh extends THREE.Mesh {
+  constructor(geometry, materials) {
+    super(geometry, materials);
+
+    this.idMatrix = SkinnedMesh.defaultMatrix();
+    this.bones = [];
+    this.boneMatrices = [];
+    //...
+  }
+  update(camera) {
+    //...
+    super.update();
+  }
+  get boneCount() {
+    return this.bones.length;
+  }
+  set matrixType(matrixType) {
+    this.idMatrix = SkinnedMesh[matrixType]();
+  }
+  static defaultMatrix() {
+    return new THREE.Matrix4();
+  }
+}
+```
+
+### String Interpolation
+``` javascript
+var name = "Bob", time = "today";
+`Hello ${name}, how are you ${time}?`
+```
+
+### `let` and `const`
+`let` is like `var` except it is block-scoped. Variables declared with `const` can only be assigned once.
+``` javascript
+if (1 < 2) {
+  let i = 4;
+  const name = 'Jon Snow'
+}
+var i = 5; // error, i is already defined
+name = 'Samwell Tarly' // error, const can only be defined once
+```
+
+### Generator
+Functions that can be paused using the `yield` keyword and restarted from the outside. `yield _____` is called a "yield expression" which gets evaluated with whatever value we send in when we restart the generator. `yield` is making a request for a value.
+
+``` javascript
+function* fibonacci() {
+  let a = 0, b = 1;
+
+  while(true) {
+    yield a;
+    [a, b] = [b, a + b];
+  }
+}
+
+// Enumerates the Fibonacci numbers
+for(let value of fibonacci()) {
+  console.log(value);
+}
+```
+Generators are useful because they return (i.e. create) iterators. In turn, an iterator, an object with a `next` method, actually executes the body of generators. The `next` method, when repeatedly called, partially executes the corresponding generator, gradually advancing through the body until a `yield` keyword is hit.
+
+``` javascript
+function* argumentsGenerator() {
+  for (let i = 0; i < arguments.length; i += 1) {
+    yield arguments[i];
+  }
+}
+
+var argumentsIterator = argumentsGenerator('a', 'b', 'c');
+
+// Prints "a b c"
+console.log(
+    argumentsIterator.next().value,
+    argumentsIterator.next().value,
+    argumentsIterator.next().value
+);
+
+// ES6 has syntactic sugar for iteration.
+// Prints "a", "b", "c"
+for(let value of argumentsIterator) {
+  console.log(value);
+}
+```
+The `next` method of an iterator returns an object with a `value` property and a `done` property, as long as the body of the corresponding generator has not `return`ed. The `value` property refers the value `yield`ed or `return`ed. The `done` property is `false` up until the generator body `return`s, at which point it is `true`. If the `next` method is called after `done` is `true`, an error is thrown.
+
+### Maps, Sets, WeakMap, WeakSet
+
+A Map is an object for which the keys can be any arbitrary object. A Set is a data structure which contains a finite set of elements, each occurring only once. WeakMaps and WeakSets provide leak-free object-key’d side tables. The JavaScript virtual machine periodically frees memory allocated to objects no longer in scope. An object is no longer in scope if there is no chain of references from the current scope leading to it.
+``` javascript
+// Sets
+var s = new Set();
+s.add("hello").add("goodbye").add("hello");
+s.size === 2;
+s.has("hello") === true;
+
+// Maps
+var m = new Map();
+m.set("hello", 42);
+m.set(s, 34);
+m.get(s) == 34;
+
+// Weak Maps
+var wm = new WeakMap();
+wm.set(s, { extra: 42 });
+wm.size === undefined
+
+// Weak Sets
+var ws = new WeakSet();
+ws.add({ data: 42 });
+// Because the added object has no other references, it will not be held in the set
+```
+
+### Promises
+
+Promises are a library for asynchronous programming. Promises are a first class representation of a value that may be made available in the future. A Promise is in one of these states:
+- pending: initial state, not fulfilled or rejected.
+- fulfilled: successful operation
+- rejected: failed operation.
+- settled: the Promise is either fulfilled or rejected, but not pending.
+
+``` javascript
+var someAsyncThing = function() {
+  return new Promise(function(resolve, reject) {
+    // this will throw, x does not exist
+    resolve(x + 2);
+  });
+};
+
+someAsyncThing().then(function() {
+  console.log('everything is great');
+}).catch(function(error) {
+  console.log('oh no', error);
+});
+```
+
+### Modules
+
+``` javascript
+// lib/math.js
+export function sum(x, y) {
+  return x + y;
+}
+export var pi = 3.141593;
+```
+```javascript
+// app.js
+import * as math from "lib/math";
+alert("2π = " + math.sum(math.pi, math.pi));
+```
+```javascript
+// otherApp.js
+import {sum, pi} from "lib/math";
+alert("2π = " + sum(pi, pi));
+```
+
+TODO: Proxies, Symbol
