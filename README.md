@@ -1,4 +1,4 @@
-# JavaScript Cheat Sheet
+# JavaScript Cheat Sheet 
 
 Based off of [Learn X in Y Minutes](http://learnxinyminutes.com/docs/javascript/).
 
@@ -16,7 +16,7 @@ Here's what all those big words above mean:
 - <a name="object-oriented"></a>__Object-Oriented Programming__: Object based programming
 - <a name="functional"></a>__Functional Programming__: Function based programming
 
-## Quick Access Links
+## Quick Access Links 
 1. [Basics](#basics)
     1. [Primitives](#primitives)
     2. [Operators](#operators)
@@ -58,7 +58,7 @@ multiline comment */
 doStuff();
 ```
 <a name="primitives"></a>
-### i. Primitives: Number, String, Boolean (and some special ones)
+### i. Primitives: Number, String, Boolean (and some special ones) 
 
 ```javascript
 // JavaScript has one number type (which is a 64-bit IEEE 754 double).
@@ -124,7 +124,7 @@ false;
 // But I'll add that on here once I actually figure out what it is
 ```
 <a name="operators"> </a>
-### ii. Operators aka weirdly written functions
+### ii. Operators aka weirdly written functions 
 ```javascript
 // Operators have both a precedence (order of importance, like * before +) 
 // and an associativity (order of evaluation, like left-to-right)
@@ -202,7 +202,7 @@ x instanceof Function // = false
 <a name="syntax"></a>
 ## 2. More Basic Syntax 
 <a name="variables"></a>
-### i. Variables
+### i. Variables 
 ```javascript
 // Variables are declared with the `var` keyword. JavaScript is dynamically
 // typed, so you don't need to specify type. Assignment uses a single `=`
@@ -220,7 +220,7 @@ var someThirdVar; // = undefined
 ```
 
 <a name="arrays"> </a>
-### ii. Arrays
+### ii. Arrays 
 ```javascript
 // Arrays are ordered lists of values, of any type.
 var myArray = ["Hello", 45, true];
@@ -238,7 +238,7 @@ myArray[3] = "Hello";
 ```
 
 <a name="logic"></a>
-### iii. Logic and Control Structures
+### iii. Logic and Control Structures 
 ```javascript
 // The `if` structure works as you'd expect.
 var count = 1;
@@ -296,11 +296,15 @@ switch (grade) {
 
 ```
 
-<a name="objects-and-functions"></a>
-##3. Objects and Functions 
+<a name="syntax"></a>
+## 2. More Basic Syntax 
+<a name="variables"></a>
 
+
+<a name="objects-and-functions"></a>
+## 3. Objects and Functions 
 <a name="objects"></a>
-### i. Objects
+### i. Objects 
 An object is simply an unordered collection of key-value pairs.
 ```javascript
 // They can be made literally:
@@ -354,7 +358,7 @@ JSON.parse(json_stuff);
 ```
 
 <a name="functions"></a>
-### ii. Functions
+### ii. Functions 
 Functions are special kinds of objects! Functions can have their own methods and properties just like other objects, but they're rarely used in that way. 
 
 Remember, functions in JS are first-class. Meaning they can be assigned and passed just like any other variable can.
@@ -452,7 +456,7 @@ c.log(); // outputs "Updated again! The c object"
 ```
 
 <a name="bind"></a>
-### iii. Bind, Call and Apply
+### iii. Bind, Call and Apply 
 Functions that aren't tied to objects can use `this` and still be useful. Consider this example.
 ```javascript
 var cow = { says: "moo" };
@@ -518,7 +522,7 @@ A few important concepts:
 - The __Execution Stack__ or __Call Stack__ is the "stack" of execution contexts with the global execution context being the bottommost. When the program flow enters a function, a new execution context is popped onto the call stack, and when the function returns, it is popped off.
 
 <a name="hoisting"></a>
-### i. Hoisting
+### i. Hoisting 
 Before actually executing any of the code, the JS engine first looks at all the variable declarations and function statements and sets aside some memory space for them effectively moving them to the top of the code. This is known as __hoisting__.
 ```javascript
 // Variable example
@@ -556,7 +560,7 @@ b = function() {}
 JS is always synchronous (executing code 1 line at a time and in-order) and single-threaded (only 1 command at a time). However, jQuery, event handlers and AJAX calls make use of callbacks which appear to run asynchronously. AJAX calls are delegated off to a different part of the browser (outside the JS engine) which is why they are run asynchronously. When the call returns, or if there's a user click, then these events fill up the Event Queue. The JS Engine only handles the Event Queue when the Execution Stack is empty. 
 
 <a name="scope-chain"></a>
-### ii. Scope Chain
+### ii. Scope Chain 
 To find a variable when functions are running, JS looks further than just the variable environment of the currently executing context, it also looks at the outer environment (the environment to which this function is _lexically_ attached). This process continues looking all the way down to the global environment in a process known as the __scope chain_.
 
 ```javascript
@@ -586,7 +590,7 @@ i; // = 5 - not undefined as you'd expect in a block-scoped language
 ```
 
 <a name="closures"></a>
-### iii. Closures
+### iii. Closures 
 One of JS's most powerful features is __closures__. Whenever a function is nested within another function, the inner function has access to all the outer function's variables even after the outer function exits.
 After the outer function exits, it is popped off the Execution Stack, however if any of its variables are referenced in the inner function, then those variables are "closed into" the inner function's Execution Context and are accessible by the inner function.
 
@@ -634,7 +638,7 @@ fs[2]();
 ```
 
 <a name="callbacks"></a>
-### iv. Callbacks
+### iv. Callbacks 
 __Callbacks__ are simply functions passed as arguments to other functions to be run when the other functions are finished.
 
 ```javascript
@@ -657,7 +661,7 @@ setTimeout(function(){
 ## 5. Object-Oriented JS and Prototypal Inheritance 
 
 <a name="constructors"></a>
-### i. Function Constructors
+### i. Function Constructors 
 When you call a function with the `new` keyword, a new object is created in memory, and is made available to the function via the `this` keyword. Functions designed to be called like that are called constructors.
 ```javascript
 var MyConstructor = function(){
@@ -675,8 +679,8 @@ myNewObj.getSecret(); // = 4
 
 ```
 
-<a name="prototypes">
-### ii. Prototypes
+<a name="prototypes"></a>
+### ii. Prototypes  
 Every JavaScript object has a 'prototype' property, which is simply a reference to another object. When you go to access a property that doesn't exist on the actual object, the interpreter will look at its prototype. If it doesn't exist on the prototype, it'll look at the prototype's prototype. It will keep looking down this __prototype chain__ until it hits the base object Object, which doesn't have a prototype. 
 ```javascript
 // Some JS implementations let you access an object's prototype on the magic
@@ -713,7 +717,7 @@ myObj.meaningOfLife; // = 43
 ```
 
 <a name="prototypal-inheritance"></a>
-### iii. Prototypal Inheritance aka setting prototypes of new objects
+### iii. Prototypal Inheritance aka setting prototypes of new objects 
 
 Accessing `__proto__` is non-standard, and there are no standard ways to change the prototype of an existing object. However, there are two ways to create a new object with a given prototype.
 ```javascript
@@ -741,7 +745,7 @@ myNewObj2.getMyNumber(); // = 6
 ```
 
 <a name="built-in"> </a>
-### iv. Built-In Constructors
+### iv. Built-In Constructors 
 ```javascript
 // Built-in types like strings and numbers also have constructors that create
 // equivalent wrapper objects.
@@ -784,7 +788,7 @@ if (Object.create === undefined){ // don't overwrite it if it exists
 ```
 
 <a name="bugs"> </a>
-## 6. Bugs and Error Handling
+## 6. Bugs and Error Handling 
 
 ```javascript
 // You can opt in to tell the JS engine to be very strict in its interpretation
@@ -795,9 +799,9 @@ if (Object.create === undefined){ // don't overwrite it if it exists
 
 
 <a name="es6"></a>
-##7. New ES6 stuff 
+## 7. New ES6 stuff 
 
-### Arrows
+### Arrows 
 Arrows are a function shorthands for anonymous functions used with the `=>` syntax. They pass the outside lexical scope (ie. `this`) to the function.
 ```javascript
 // Expression bodies
@@ -821,7 +825,7 @@ var bob = {
 }
 ```
 
-### Classes
+### Classes 
 Object-oriented syntactic sugar for the prototypal inheritance pattern.
 
 ``` javascript
@@ -850,13 +854,13 @@ class SkinnedMesh extends THREE.Mesh {
 }
 ```
 
-### String Interpolation
+### String Interpolation 
 ``` javascript
 var name = "Bob", time = "today";
 `Hello ${name}, how are you ${time}?`
 ```
 
-### `let` and `const`
+### `let` and `const` 
 `let` is like `var` except it is block-scoped. Variables declared with `const` can only be assigned once.
 ``` javascript
 if (1 < 2) {
@@ -867,7 +871,7 @@ var i = 5; // error, i is already defined
 name = 'Samwell Tarly' // error, const can only be defined once
 ```
 
-### Generator
+### Generator 
 Functions that can be paused using the `yield` keyword and restarted from the outside. `yield _____` is called a "yield expression" which gets evaluated with whatever value we send in when we restart the generator. `yield` is making a request for a value.
 
 ``` javascript
@@ -911,7 +915,7 @@ for(let value of argumentsIterator) {
 ```
 The `next` method of an iterator returns an object with a `value` property and a `done` property, as long as the body of the corresponding generator has not `return`ed. The `value` property refers the value `yield`ed or `return`ed. The `done` property is `false` up until the generator body `return`s, at which point it is `true`. If the `next` method is called after `done` is `true`, an error is thrown.
 
-### Maps, Sets, WeakMap, WeakSet
+### Maps, Sets, WeakMap, WeakSet 
 
 A Map is an object for which the keys can be any arbitrary object. A Set is a data structure which contains a finite set of elements, each occurring only once. WeakMaps and WeakSets provide leak-free object-key’d side tables. The JavaScript virtual machine periodically frees memory allocated to objects no longer in scope. An object is no longer in scope if there is no chain of references from the current scope leading to it.
 ``` javascript
@@ -938,7 +942,7 @@ ws.add({ data: 42 });
 // Because the added object has no other references, it will not be held in the set
 ```
 
-### Promises
+### Promises 
 
 Promises are a library for asynchronous programming. Promises are a first class representation of a value that may be made available in the future. A Promise is in one of these states:
 - pending: initial state, not fulfilled or rejected.
@@ -961,7 +965,7 @@ someAsyncThing().then(function() {
 });
 ```
 
-### Modules
+### Modules 
 
 ``` javascript
 // lib/math.js
