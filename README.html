@@ -1,0 +1,1928 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>body {
+  width: 45em;
+  border: 1px solid #ddd;
+  outline: 1300px solid #fff;
+  margin: 16px auto;
+}
+
+body .markdown-body
+{
+  padding: 30px;
+}
+
+@font-face {
+  font-family: fontawesome-mini;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+@font-face {
+  font-family: octicons-anchor;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+.markdown-body {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  color: #333333;
+  overflow: hidden;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.markdown-body a {
+  background: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline: 0;
+}
+
+.markdown-body b,
+.markdown-body strong {
+  font-weight: bold;
+}
+
+.markdown-body mark {
+  background: #ff0;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body sub,
+.markdown-body sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+.markdown-body sup {
+  top: -0.5em;
+}
+.markdown-body sub {
+  bottom: -0.25em;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.markdown-body img {
+  border: 0;
+}
+
+.markdown-body hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+.markdown-body pre {
+  overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.markdown-body input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body html input[disabled] {
+  cursor: default;
+}
+
+.markdown-body input {
+  line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body .codehilitetable {
+  border: 0;
+  border-spacing: 0;
+}
+
+.markdown-body .codehilitetable tr {
+  border: 0;
+}
+
+.markdown-body .codehilitetable pre,
+.markdown-body .codehilitetable div.codehilite {
+  margin: 0;
+}
+
+.markdown-body .linenos,
+.markdown-body .code,
+.markdown-body .codehilitetable td {
+  border: 0;
+  padding: 0;
+}
+
+.markdown-body td:not(.linenos) .linenodiv {
+  padding: 0 !important;
+}
+
+.markdown-body .code {
+  width: 100%;
+}
+
+.markdown-body .linenos div pre,
+.markdown-body .linenodiv pre,
+.markdown-body .linenodiv {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.markdown-body .code div pre,
+.markdown-body .code div {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -moz-border-radius-topright: 3px;
+  -moz-border-radius-bottomright: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.markdown-body * {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font: 13px Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1.4;
+}
+
+.markdown-body a {
+  color: #4183c4;
+  text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:focus,
+.markdown-body a:active {
+  text-decoration: underline;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before,
+.markdown-body hr:after {
+  display: table;
+  content: " ";
+}
+
+.markdown-body hr:after {
+  clear: both;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.markdown-body h1 {
+  font-size: 30px;
+}
+
+.markdown-body h2 {
+  font-size: 21px;
+}
+
+.markdown-body h3 {
+  font-size: 16px;
+}
+
+.markdown-body h4 {
+  font-size: 14px;
+}
+
+.markdown-body h5 {
+  font-size: 12px;
+}
+
+.markdown-body h6 {
+  font-size: 11px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body kbd {
+  background-color: #e7e7e7;
+  background-image: -moz-linear-gradient(#fefefe, #e7e7e7);
+  background-image: -webkit-linear-gradient(#fefefe, #e7e7e7);
+  background-image: linear-gradient(#fefefe, #e7e7e7);
+  background-repeat: repeat-x;
+  border-radius: 2px;
+  border: 1px solid #cfcfcf;
+  color: #000;
+  padding: 3px 5px;
+  line-height: 10px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  display: inline-block;
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body .headeranchor-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  padding-right: 6px;
+  padding-left: 30px;
+  margin-left: -30px;
+}
+
+.markdown-body .headeranchor-link:focus {
+  outline: none;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  position: relative;
+  margin-top: 1em;
+  margin-bottom: 16px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.markdown-body h1 .headeranchor,
+.markdown-body h2 .headeranchor,
+.markdown-body h3 .headeranchor,
+.markdown-body h4 .headeranchor,
+.markdown-body h5 .headeranchor,
+.markdown-body h6 .headeranchor {
+  display: none;
+  color: #000;
+  vertical-align: middle;
+}
+
+.markdown-body h1:hover .headeranchor-link,
+.markdown-body h2:hover .headeranchor-link,
+.markdown-body h3:hover .headeranchor-link,
+.markdown-body h4:hover .headeranchor-link,
+.markdown-body h5:hover .headeranchor-link,
+.markdown-body h6:hover .headeranchor-link {
+  height: 1em;
+  padding-left: 8px;
+  margin-left: -30px;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .headeranchor-link .headeranchor,
+.markdown-body h2:hover .headeranchor-link .headeranchor,
+.markdown-body h3:hover .headeranchor-link .headeranchor,
+.markdown-body h4:hover .headeranchor-link .headeranchor,
+.markdown-body h5:hover .headeranchor-link .headeranchor,
+.markdown-body h6:hover .headeranchor-link .headeranchor {
+  display: inline-block;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+.markdown-body h4 {
+  font-size: 1.25em;
+}
+
+.markdown-body h5 {
+  font-size: 1em;
+}
+
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre,
+.markdown-body .admonition {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+.markdown-body table th {
+  font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body code,
+.markdown-body samp {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .codehilite {
+  margin-bottom: 16px;
+}
+
+.markdown-body .codehilite pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.markdown-body .codehilite pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+  content: normal;
+}
+
+/* Admonition */
+.markdown-body .admonition {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  position: relative;
+  border-radius: 3px;
+  border: 1px solid #e0e0e0;
+  border-left: 6px solid #333;
+  padding: 10px 10px 10px 30px;
+}
+
+.markdown-body .admonition table {
+  color: #333;
+}
+
+.markdown-body .admonition p {
+  padding: 0;
+}
+
+.markdown-body .admonition-title {
+  font-weight: bold;
+  margin: 0;
+}
+
+.markdown-body .admonition>.admonition-title {
+  color: #333;
+}
+
+.markdown-body .attention>.admonition-title {
+  color: #a6d796;
+}
+
+.markdown-body .caution>.admonition-title {
+  color: #d7a796;
+}
+
+.markdown-body .hint>.admonition-title {
+  color: #96c6d7;
+}
+
+.markdown-body .danger>.admonition-title {
+  color: #c25f77;
+}
+
+.markdown-body .question>.admonition-title {
+  color: #96a6d7;
+}
+
+.markdown-body .note>.admonition-title {
+  color: #d7c896;
+}
+
+.markdown-body .admonition:before,
+.markdown-body .attention:before,
+.markdown-body .caution:before,
+.markdown-body .hint:before,
+.markdown-body .danger:before,
+.markdown-body .question:before,
+.markdown-body .note:before {
+  font: normal normal 16px fontawesome-mini;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  line-height: 1.5;
+  color: #333;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.markdown-body .admonition:before {
+  content: "\f056\00a0";
+  color: 333;
+}
+
+.markdown-body .attention:before {
+  content: "\f058\00a0";
+  color: #a6d796;
+}
+
+.markdown-body .caution:before {
+  content: "\f06a\00a0";
+  color: #d7a796;
+}
+
+.markdown-body .hint:before {
+  content: "\f05a\00a0";
+  color: #96c6d7;
+}
+
+.markdown-body .danger:before {
+  content: "\f057\00a0";
+  color: #c25f77;
+}
+
+.markdown-body .question:before {
+  content: "\f059\00a0";
+  color: #96a6d7;
+}
+
+.markdown-body .note:before {
+  content: "\f040\00a0";
+  color: #d7c896;
+}
+
+.markdown-body .admonition::after {
+  content: normal;
+}
+
+.markdown-body .attention {
+  border-left: 6px solid #a6d796;
+}
+
+.markdown-body .caution {
+  border-left: 6px solid #d7a796;
+}
+
+.markdown-body .hint {
+  border-left: 6px solid #96c6d7;
+}
+
+.markdown-body .danger {
+  border-left: 6px solid #c25f77;
+}
+
+.markdown-body .question {
+  border-left: 6px solid #96a6d7;
+}
+
+.markdown-body .note {
+  border-left: 6px solid #d7c896;
+}
+
+.markdown-body .admonition>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body .admonition>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* progress bar*/
+.markdown-body .progress {
+  display: block;
+  width: 300px;
+  margin: 10px 0;
+  height: 24px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #ededed;
+  position: relative;
+  box-shadow: inset -1px 1px 3px rgba(0, 0, 0, .1);
+}
+
+.markdown-body .progress-label {
+  position: absolute;
+  text-align: center;
+  font-weight: bold;
+  width: 100%; margin: 0;
+  line-height: 24px;
+  color: #333;
+  text-shadow: 1px 1px 0 #fefefe, -1px -1px 0 #fefefe, -1px 1px 0 #fefefe, 1px -1px 0 #fefefe, 0 1px 0 #fefefe, 0 -1px 0 #fefefe, 1px 0 0 #fefefe, -1px 0 0 #fefefe, 1px 1px 2px #000;
+  -webkit-font-smoothing: antialiased !important;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.markdown-body .progress-bar {
+  height: 24px;
+  float: left;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #96c6d7;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5), inset 0 -1px 0 rgba(0, 0, 0, .1);
+  background-size: 30px 30px;
+  background-image: -webkit-linear-gradient(
+    135deg, rgba(255, 255, 255, .4) 27%,
+    transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%,
+    transparent 77%, transparent
+  );
+  background-image: -moz-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -ms-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -o-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+}
+
+.markdown-body .progress-100plus .progress-bar {
+  background-color: #a6d796;
+}
+
+.markdown-body .progress-80plus .progress-bar {
+  background-color: #c6d796;
+}
+
+.markdown-body .progress-60plus .progress-bar {
+  background-color: #d7c896;
+}
+
+.markdown-body .progress-40plus .progress-bar {
+  background-color: #d7a796;
+}
+
+.markdown-body .progress-20plus .progress-bar {
+  background-color: #d796a6;
+}
+
+.markdown-body .progress-0plus .progress-bar {
+  background-color: #c25f77;
+}
+
+.markdown-body .candystripe-animate .progress-bar{
+  -webkit-animation: animate-stripes 3s linear infinite;
+  -moz-animation: animate-stripes 3s linear infinite;
+  animation: animate-stripes 3s linear infinite;
+}
+
+@-webkit-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@-moz-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+.markdown-body .gloss .progress-bar {
+  box-shadow:
+    inset 0 4px 12px rgba(255, 255, 255, .7),
+    inset 0 -12px 0 rgba(0, 0, 0, .05);
+}
+
+/* Multimarkdown Critic Blocks */
+.markdown-body .critic_mark {
+  background: #ff0;
+}
+
+.markdown-body .critic_delete {
+  color: #c82829;
+  text-decoration: line-through;
+}
+
+.markdown-body .critic_insert {
+  color: #718c00 ;
+  text-decoration: underline;
+}
+
+.markdown-body .critic_comment {
+  color: #8e908c;
+  font-style: italic;
+}
+
+.markdown-body .headeranchor {
+  font: normal normal 16px octicons-anchor;
+  line-height: 1;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.headeranchor:before {
+  content: '\f05c';
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 4px 0.25em -20px;
+  vertical-align: middle;
+}
+
+/* Media */
+@media only screen and (min-width: 480px) {
+  .markdown-body {
+    font-size:14px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .markdown-body {
+    font-size:16px;
+  }
+}
+
+@media print {
+  .markdown-body * {
+    background: transparent !important;
+    color: black !important;
+    filter:none !important;
+    -ms-filter: none !important;
+  }
+
+  .markdown-body {
+    font-size:12pt;
+    max-width:100%;
+    outline:none;
+    border: 0;
+  }
+
+  .markdown-body a,
+  .markdown-body a:visited {
+    text-decoration: underline;
+  }
+
+  .markdown-body .headeranchor-link {
+    display: none;
+  }
+
+  .markdown-body a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  .markdown-body abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  .markdown-body .ir a:after,
+  .markdown-body a[href^="javascript:"]:after,
+  .markdown-body a[href^="#"]:after {
+    content: "";
+  }
+
+  .markdown-body pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  .markdown-body pre,
+  .markdown-body blockquote {
+    border: 1px solid #999;
+    padding-right: 1em;
+    page-break-inside: avoid;
+  }
+
+  .markdown-body .progress,
+  .markdown-body .progress-bar {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .markdown-body .progress {
+    border: 1px solid #ddd;
+  }
+
+  .markdown-body .progress-bar {
+    height: 22px;
+    border-right: 1px solid #ddd;
+  }
+
+  .markdown-body tr,
+  .markdown-body img {
+    page-break-inside: avoid;
+  }
+
+  .markdown-body img {
+    max-width: 100% !important;
+  }
+
+  .markdown-body p,
+  .markdown-body h2,
+  .markdown-body h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  .markdown-body h2,
+  .markdown-body h3 {
+    page-break-after: avoid;
+  }
+}
+</style><title>README</title></head><body><article class="markdown-body"><h1 id="javascript-cheat-sheet"><a name="user-content-javascript-cheat-sheet" href="#javascript-cheat-sheet" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>JavaScript Cheat Sheet</h1>
+<p>Based off of <a href="http://learnxinyminutes.com/docs/javascript/">Learn X in Y Minutes</a>.</p>
+<p>JavaScript (JS) is a dynamic <a href="#interpreted-lang">interpreted language</a> that powers the web. It is widely used in browsers (where JS scripts are interpreted by <a href="#javascript-engine">JavaScript engines</a> like Chrome&rsquo;s <a href="https://developers.google.com/v8/">V8</a>) and increasingly on servers (on a <a href="https://nodejs.org">Node.js</a> runtime environment).</p>
+<p>JS is a <a href="#prototype-based">prototype-based</a> scripting language with <a href="#first-class-functions">first-class functions</a> and <a href="#dynamic-type">dynamic typing</a>. Because of its super flexibility, JS supports multiple styles of programming including <a href="#imperative">imperative</a>, <a href="#object-oriented">object-oriented</a> and <a href="#functional">functional</a>.</p>
+<p>Here&rsquo;s what all those big words above mean: <br />
+- <a name="interpreted-lang"></a><strong>Interpreted Language</strong>: a language (eg. JS, Python) in which most of its implementations execute instructions directly, without previously compiling a program into machine-language instructions like compiled languages do (eg. C++)<br />
+- <a name="javascript-engine"></a><strong>JavaScript Engine</strong>: a virtual machine that interprets and executes JS<br />
+- <a name="prototype-based"></a><strong>Prototype-Based</strong>: unlike classical OOP with classes and objects, in JS, objects are cloned from other objects, and all objects have <em>prototypes</em> (kinda like the template they inherit from)<br />
+- <a name="first-class-functions"></a><strong>First-Class Functions</strong>:  JS supports passing functions as arguments to other functions, returning them as the values from other functions, and assigning them to variables or storing them in data structures<br />
+- <a name="dynamic-type"></a><strong>Dynamically Typed</strong>: The &ldquo;type&rdquo; of all variables is only interpreted at run-time unlike statically typed languages where all variables have a type at compile-time<br />
+- <a name="imperative"></a><strong>Imperative Programming</strong>: Statement based programming<br />
+- <a name="object-oriented"></a><strong>Object-Oriented Programming</strong>: Object based programming<br />
+- <a name="functional"></a><strong>Functional Programming</strong>: Function based programming</p>
+<h2 id="quick-access-links"><a name="user-content-quick-access-links" href="#quick-access-links" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Quick Access Links</h2>
+<ol>
+<li><a href="#basics">Basics</a><ol>
+<li><a href="#primitives">Primitives</a></li>
+<li><a href="#operators">Operators</a></li>
+</ol>
+</li>
+<li><a href="#syntax">More Basic Syntax</a><ol>
+<li><a href="#variables">Variables</a></li>
+<li><a href="#arrays">Arrays</a></li>
+<li><a href="#logic">Logic and Control Structures</a></li>
+</ol>
+</li>
+<li><a href="#objects-and-functions">Objects and Functions</a><ol>
+<li><a href="#objects">Objects</a></li>
+<li><a href="#functions">Functions</a></li>
+<li><a href="#bind">Bind, Call and Apply</a></li>
+</ol>
+</li>
+<li><a href="#execution">Function Execution, Variable Scope, Closures &amp; Callbacks</a><ol>
+<li><a href="#hoisting">Hoisting</a></li>
+<li><a href="#scope-chain">Scope Chain</a></li>
+<li><a href="#closures">Closures</a></li>
+<li><a href="#callbacks">Callbacks</a></li>
+</ol>
+</li>
+<li><a href="#object-oriented">Object-Oriented JS and Prototypal Inheritance</a><ol>
+<li><a href="#constructors">Constructors</a></li>
+<li><a href="#prototypes">Prototypes</a></li>
+<li><a href="#prototypal-inheritance">Prototypal Inheritance</a></li>
+<li><a href="#built-in">Built-In Constructors</a></li>
+</ol>
+</li>
+<li><a href="#bugs">Bugs and Error Handling</a></li>
+<li><a href="#es6">New ES6 stuff</a></li>
+</ol>
+<p>TODO: Add 8. Useful Libraries (LoDash, jQuery), 9. Javascript in the browser, 10. NodeJS</p>
+<p><a name="basics"></a></p>
+<h2 id="1-basics"><a name="user-content-1-basics" href="#1-basics" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1. Basics</h2>
+<p><strong>Everything</strong> in JS is either an object or a primitive.<br />
+<pre><code class="javascript">
+// This is a single line comment,
+/* and this is a 
+multiline comment */
+
+// Semicolons (;) to terminate lines are optional
+// However, the JS engine will (usually) automatically insert semicolons upon seeing '\n'
+// This can cause some weird behaviour so ALWAYS use semicolons
+doStuff();
+</code></pre><br />
+<a name="primitives"></a></p>
+<h3 id="i-primitives-number-string-boolean-and-some-special-ones"><a name="user-content-i-primitives-number-string-boolean-and-some-special-ones" href="#i-primitives-number-string-boolean-and-some-special-ones" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>i. Primitives: Number, String, Boolean (and some special ones)</h3>
+<p><pre><code class="javascript">// JavaScript has one number type (which is a 64-bit IEEE 754 double).
+// Doubles have a 52-bit mantissa, which is enough to store integers
+//    up to about 9✕10¹⁵ precisely.
+3; // = 3
+1.5; // = 1.5
+
+// Some basic arithmetic works as you'd expect.
+1 + 1; // = 2
+0.1 + 0.2; // = 0.30000000000000004 (funky floating point arithmetic--be careful!)
+8 - 1; // = 7
+10 * 2; // = 20
+35 / 5; // = 7
+
+// Including uneven division.
+5 / 2; // = 2.5
+
+// Bitwise operations also work; when you perform a bitwise operation your float
+// is converted to a signed int *up to* 32 bits.
+1 &lt;&lt; 2; // = 4
+
+// Precedence is enforced with parentheses.
+(1 + 3) * 2; // = 8
+
+// There are special primitive values:
+Infinity; // result of e.g. 1/0
+-Infinity; // result of e.g. -1/0
+NaN; // result of e.g. 0/0
+undefined; // never use this yourself. This is the default value for &quot;not assigned&quot;
+null; // use this instead. This is the programmer setting a var to &quot;not assigned&quot;
+
+// There's also a boolean type.
+true;
+false;
+
+// Strings are created with single quotes (') or double quotes (&quot;).
+'abc';
+&quot;Hello, world&quot;;
+
+// You can access characters in a string with `charAt`
+&quot;This is a string&quot;.charAt(0);  // = 'T'
+
+// ...or use `substring` to get larger pieces.
+&quot;Hello world&quot;.substring(0, 5); // = &quot;Hello&quot;
+&quot;Hello world&quot;.slice(0, 5); // does the same thing
+&quot;Hello world&quot;.substr(0, 5); // yet again
+
+// `length` is a property, so don't use ().
+&quot;Hello&quot;.length; // = 5
+
+// Searching strings
+&quot;Mary had a little lamb&quot;.search(&quot;had&quot;); // returns 5
+&quot;Mary had a little lamb&quot;.indexOf(&quot;zebra&quot;); // returns -1
+
+// String to a character array
+&quot;one two three four&quot;.split(&quot; &quot;); // ['one', 'two', 'three', 'four']
+
+// String replace
+&quot;happy birthday henry!&quot;.replace(&quot;h&quot;, &quot;H&quot;); // &quot;Happy birthday Henry!&quot;
+
+// ES6 also introduces Symbol as a new primitive type
+// But I'll add that on here once I actually figure out what it is
+</code></pre><br />
+<a name="operators"> </a></p>
+<h3 id="ii-operators-aka-weirdly-written-functions"><a name="user-content-ii-operators-aka-weirdly-written-functions" href="#ii-operators-aka-weirdly-written-functions" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>ii. Operators aka weirdly written functions</h3>
+<pre><code class="javascript">// Operators have both a precedence (order of importance, like * before +) 
+// and an associativity (order of evaluation, like left-to-right)
+// A table of operators can be found here 
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence)
+
+// Negation uses the ! symbol
+!true; // = false
+!false; // = true
+
+// There's shorthand operators for performing math operations on variables:
+someVar += 5; // equivalent to someVar = someVar + 5;
+someVar *= 10; // someVar = someVar * 10;
+
+// and an even-shorter-hand  operators for adding or subtracting 1
+someVar++; 
+someVar--; 
+
+// Strings are concatenated with +
+&quot;Hello &quot; + &quot;world!&quot;; // = &quot;Hello world!&quot;
+
+// Comparison Operators
+1 &lt; 10; // = true
+1 &gt; 10; // = false
+2 &lt;= 2; // = true
+2 &gt;= 2; // = true
+
+// and are compared with &lt; and &gt;
+&quot;a&quot; &lt; &quot;b&quot;; // = true
+
+// Strict Equality is ===
+// Strict meaning both type AND value are the same
+1 === 1; // = true
+2 === 1; // = false
+
+// Strict Inequality is !==
+1 !== 1; // = false
+2 !== 1; // = true
+
+// == allows for type coercion (conversion) and only checks if the values are equal after coercion
+&quot;5&quot; == 5; // = true
+null == undefined; // = true
+
+// ...which can result in some weird behaviour...so use === whenever possible
+13 + !0; // 14
+&quot;13&quot; + !0; // '13true'
+
+// false, null, undefined, NaN, 0 and &quot;&quot; are falsy; everything else is truthy.
+// Note that 0 is falsy and &quot;0&quot; is truthy, even though 0 == &quot;0&quot;.
+
+// We can use this to our advantage when checking for existence
+if (x) { //doSomething };
+
+// Or to set default values
+x = x || &quot;default&quot; 
+// if x exists, do nothing and short-circuit, else set x to a default
+
+// but a problem arises if x = 0. It exists, but will coerce to false
+// be wary of this
+
+// figuring out types of literals and vars
+typeof &quot;Hello&quot;; // = &quot;string&quot;
+typeof 42; // = &quot;number&quot;
+typeof undefined // = &quot;undefined&quot;
+typeof null // = 'object' THIS IS A JS BUG!
+
+// figuring out if an object is an instance of another object
+// checks all the way down the prototype chain
+var x = {}
+x instanceof Object // = true
+x instanceof Function // = false
+
+</code></pre>
+
+<p><a name="syntax"></a></p>
+<h2 id="2-more-basic-syntax"><a name="user-content-2-more-basic-syntax" href="#2-more-basic-syntax" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2. More Basic Syntax</h2>
+<p><a name="variables"></a></p>
+<h3 id="i-variables"><a name="user-content-i-variables" href="#i-variables" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>i. Variables</h3>
+<pre><code class="javascript">// Variables are declared with the `var` keyword. JavaScript is dynamically
+// typed, so you don't need to specify type. Assignment uses a single `=`
+// character.
+var someVar = 5;
+
+// if you leave the var keyword off, you won't get an error...
+someOtherVar = 10;
+
+// ...but your variable will be created in the global scope, not in the scope
+// you defined it in.
+
+// Variables declared without being assigned to are set to undefined.
+var someThirdVar; // = undefined
+</code></pre>
+
+<p><a name="arrays"> </a></p>
+<h3 id="ii-arrays"><a name="user-content-ii-arrays" href="#ii-arrays" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>ii. Arrays</h3>
+<pre><code class="javascript">// Arrays are ordered lists of values, of any type.
+var myArray = [&quot;Hello&quot;, 45, true];
+
+// Their members can be accessed using the square-brackets subscript syntax.
+// Array indices start at zero.
+myArray[1]; // = 45
+
+// Arrays are mutable and of variable length (dynamically sized arrays)
+myArray.push(&quot;World&quot;); // adds to the end
+myArray.length; // = 4
+
+// Add/Modify at specific index
+myArray[3] = &quot;Hello&quot;;
+</code></pre>
+
+<p><a name="logic"></a></p>
+<h3 id="iii-logic-and-control-structures"><a name="user-content-iii-logic-and-control-structures" href="#iii-logic-and-control-structures" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>iii. Logic and Control Structures</h3>
+<pre><code class="javascript">// The `if` structure works as you'd expect.
+var count = 1;
+if (count === 3){
+    // evaluated if count is 3
+} else if (count === 4){
+    // evaluated if count is 4
+} else {
+    // evaluated if it's not either 3 or 4
+}
+
+// As does `while`.
+while (true){
+    // An infinite loop!
+}
+
+// Do-while loops are like while loops, except they always run at least once.
+var input;
+do {
+    input = getInput();
+} while (!isValid(input))
+
+// The `for` loop is the same as C++ and Java:
+// initialisation; continue condition; iteration.
+for (var i = 0; i &lt; 5; i++){
+    // will run 5 times
+}
+
+// &amp;&amp; is logical AND, || is logical OR
+if (house.size === &quot;big&quot; &amp;&amp; house.colour === &quot;blue&quot;){
+    house.contains = &quot;bear&quot;;
+}
+if (colour === &quot;red&quot; || colour === &quot;blue&quot;){
+    // colour is either red or blue
+}
+
+// The `switch` statement checks for equality with `===`.
+// use 'break' after each case 
+// or the cases after the correct one will be executed too. 
+grade = 'B';
+switch (grade) {
+  case 'A':
+    console.log(&quot;Great job&quot;);
+    break;
+  case 'B':
+    console.log(&quot;OK job&quot;);
+    break;
+  case 'C':
+    console.log(&quot;You can do better&quot;);
+    break;
+  default:
+    console.log(&quot;Oy vey&quot;);
+    break;
+}
+
+</code></pre>
+
+<p><a name="objects-and-functions"></a></p>
+<h2 id="3-objects-and-functions"><a name="user-content-3-objects-and-functions" href="#3-objects-and-functions" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3. Objects and Functions</h2>
+<p><a name="objects"></a></p>
+<h3 id="i-objects"><a name="user-content-i-objects" href="#i-objects" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>i. Objects</h3>
+<p>An object is simply an unordered collection of key-value pairs.<br />
+<pre><code class="javascript">// They can be made literally:
+var myObj = {key1: &quot;Hello&quot;, key2: &quot;World&quot;};
+// or using the Object constructor:
+var myObj = new Object();
+
+// Keys are strings, but quotes aren't required if they're a valid
+// JavaScript identifier. Values can be any type including other objects.
+var myObj = {myKey: &quot;myValue&quot;, &quot;my other key&quot;: 4};
+
+// Objects can even contain functions (called methods)
+// When functions attached to an object are called, they can access the object
+// they're attached to using the `this` keyword.
+var myObj = { 
+  name: &quot;Destiny's Child&quot;,
+  sayMyName: function() {
+    console.log(this.name);
+  }
+}
+myObj.sayMyName(); // outputs &quot;Destiny's Child&quot;
+
+// Object attributes can also be accessed using the subscript syntax,
+myObj[&quot;my other key&quot;]; // = 4
+
+// ... or using the dot syntax, provided the key is a valid identifier.
+myObj.myKey; // = &quot;myValue&quot;
+
+// Objects are mutable; values can be changed and new keys added.
+myObj.myThirdKey = true;
+
+// If you try to access a value that's not yet set, you'll get undefined.
+myObj.myFourthKey; // = undefined
+
+// iterating through objects
+for(var property in myObj) { // do something }
+
+// JSON (JavaScript Object Notation) is just a special case of Object literal notation
+// where the keys are strings wrapped in quotes
+var json_stuff = {
+  &quot;firstName&quot;: &quot;John&quot;,
+  &quot;lastName&quot;: &quot;Doe&quot;,
+  &quot;Age&quot;: 25
+}
+
+// JS Object =&gt; JSON
+JSON.stringify(myObj);
+
+// JSON =&gt; JS Object
+JSON.parse(json_stuff);
+</code></pre></p>
+<p><a name="functions"></a></p>
+<h3 id="ii-functions"><a name="user-content-ii-functions" href="#ii-functions" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>ii. Functions</h3>
+<p>Functions are special kinds of objects! Functions can have their own methods and properties just like other objects, but they&rsquo;re rarely used in that way. </p>
+<p>Remember, functions in JS are first-class. Meaning they can be assigned and passed just like any other variable can.</p>
+<p>Functions are special in that they have an optional name property and a code property (which is the body of the function that actually does stuff). The function&rsquo;s code is executed by the invocation operator <code>()</code>.</p>
+<p><pre><code class="javascript">// JavaScript functions are declared with the `function` keyword.
+// This is a function statement
+function myFunction(thing){
+    return thing.toUpperCase();
+}
+
+// This is a function expression
+var makeUpperCase = function() {
+    return think.toUpperCase();
+}
+
+// Note that the value to be returned must start on the same line as the
+// `return` keyword, otherwise you'll always return `undefined` due to
+// automatic semicolon insertion. Watch out for this when using Allman style.
+function myFunction()
+{
+    return // &lt;- semicolon automatically inserted here
+    {
+        thisIsAn: 'object literal'
+    }
+}
+myFunction(); // = undefined
+
+// JavaScript functions are first class objects, so they can be reassigned to
+// different variable names and passed to other functions as arguments - for
+// example, when supplying an event handler:
+function myFunction(){
+    // this code will be called in 5 seconds' time
+}
+setTimeout(myFunction, 5000);
+// Note: setTimeout isn't part of the JS language, but is provided by browsers
+// and Node.js.
+</code></pre><br />
+Function objects don&rsquo;t even have to be declared with a name - you can write an <strong>anonymous function</strong> definition directly into the arguments of another.</p>
+<pre><code class="javascript">setTimeout(function(){
+    console.log(&quot;It's been 5 seconds!&quot;);
+    // this code will be called in 5 seconds time
+}, 5000);
+</code></pre>
+
+<p>This has led to a common pattern of <strong>&ldquo;immediately-executing anonymous functions&rdquo;</strong>, which prevent temporary variables from leaking into the global scope. The function expression is wrapped in parenthesis and then is invoked using <code>()</code></p>
+<pre><code class="javascript">(function(){
+    var temporary = 5;
+})();
+temporary; // raises ReferenceError
+permanent; // = 10
+</code></pre>
+
+<p>An important distinction: primitives <strong>Pass by Value</strong> while objects <strong>Pass by Reference</strong><br />
+<pre><code class="javascript">// Primitives are passed by value
+var i = 2;
+function double(i){  i*2;  } // another i is created with the same value in a different execution context
+double(i);
+console.log(i); // still 2 
+
+// Objects (including functions) are passed by reference
+var obj = { hero: &quot;Superman&quot; };
+function bestSuperhero(obj){
+  obj.hero = &quot;Batman&quot;;
+}
+bestSuperhero(obj);
+console.log(obj.hero); // = &quot;Batman&quot;
+</code></pre><br />
+The <code>this</code> keyword within methods, always refers to the object that the method is tied to. However, if the method has an inner function, its <code>this</code> refers to the global object. Some regard this as a bug in JS, so the good practice is to create and use a variable called <code>self</code>.</p>
+<pre><code class="javascript">var c = {
+    name: 'The c object',
+    log: function() {
+        var self = this;
+
+        self.name = 'Updated c object';
+        console.log(self);
+
+        var setname = function(newname) {
+            self.name = newname;   
+        }
+        setname('Updated again! The c object');
+        console.log(self);
+    }
+}
+c.log(); // outputs &quot;Updated again! The c object&quot;
+</code></pre>
+
+<p><a name="bind"></a></p>
+<h3 id="iii-bind-call-and-apply"><a name="user-content-iii-bind-call-and-apply" href="#iii-bind-call-and-apply" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>iii. Bind, Call and Apply</h3>
+<p>Functions that aren&rsquo;t tied to objects can use <code>this</code> and still be useful. Consider this example.<br />
+<pre><code class="javascript">var cow = { says: &quot;moo&quot; };
+var dog = { says: &quot;woof&quot; };
+var pig = { says: &quot;oink&quot; };
+
+function speak(times) { 
+  for(i = 0; i &lt; times; i++) {
+    console.log(this.says);
+  }
+}
+speak(4); // error because this is the global object which doesn't have a 'says' property
+</code></pre><br />
+To use speak, we need to use the .bind, .call or .apply methods, which are available to <strong>all</strong> functions. The first parameter of these functions is the object which becomes <code>this</code> within the function.</p>
+<p><pre><code class="javascript">// bind creates a copy of the function it's being called on
+var cowSpeak = speak.bind(cow);
+cowSpeak(4); // outputs &quot;moo moo&quot;
+
+// call directly executes the function with the first parameter being 'this'
+// and all the other parameters being the function's parameters
+speak.call(dog, 3); // outputs &quot;woof woof woof&quot;
+
+// apply directly executes the function with the first parameter being 'this'
+// and all the other function parameters being passed in as an array
+speak.apply(pig, [1]); // outputs &quot;oink&quot;
+</code></pre><br />
+The call and apply methods allow us to do something called <strong>Function Borrowing</strong>.<br />
+<pre><code class="javascript">var darthVader = { 
+  son: &quot;Luke&quot;,
+  saying: function(){
+    console.log(this.son + &quot;, I am your father&quot;);
+  }
+};
+var luke = { son: &quot;Ben&quot; };
+
+darthVader.saying.call(luke);
+// borrowing Darth Vader's saying
+// outputs &quot;Ben, I am your father&quot;
+</code></pre><br />
+The bind method allows us to do <strong>Function Currying</strong>.<br />
+<pre><code class="javascript">// Creating a copy of a function with preset parameters
+function multiply(a,b){ return a*b }
+
+// first parameter can be 'this' or null or anything--doesn't matter since 'this' is not used
+// the second parameter (a) is permanently set to 2
+var double = multiply.bind(this, 2);
+double(16); // outputs 32
+
+</code></pre></p>
+<p><a name="execution"></a></p>
+<h2 id="4-function-execution-variable-scope-closures-callbacks"><a name="user-content-4-function-execution-variable-scope-closures-callbacks" href="#4-function-execution-variable-scope-closures-callbacks" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4. Function Execution, Variable Scope, Closures &amp; Callbacks</h2>
+<p>A few important concepts:<br />
+- <strong>Global</strong> means not inside a function. The global object is &lsquo;window&rsquo; in browsers.<br />
+- The <strong>Lexical Environment</strong> is where something sits physically in the code<br />
+- <strong>&lsquo;this&rsquo;</strong> is a reference to the object that the currently running method is tied to (by default it&rsquo;s tied to the global object)<br />
+- The <strong>Execution Context</strong> consists of the environment (state of variables) of the function currently being evaluated. It also includes &lsquo;this&rsquo; and a reference to the outer environment (aka what object is sitting outside this function <em>lexically</em>)<br />
+- The <strong>Execution Stack</strong> or <strong>Call Stack</strong> is the &ldquo;stack&rdquo; of execution contexts with the global execution context being the bottommost. When the program flow enters a function, a new execution context is popped onto the call stack, and when the function returns, it is popped off.</p>
+<p><a name="hoisting"></a></p>
+<h3 id="i-hoisting"><a name="user-content-i-hoisting" href="#i-hoisting" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>i. Hoisting</h3>
+<p>Before actually executing any of the code, the JS engine first looks at all the variable declarations and function statements and sets aside some memory space for them effectively moving them to the top of the code. This is known as <strong>hoisting</strong>.<br />
+<pre><code class="javascript">// Variable example
+
+function a(){
+  console.log(x);
+  var x = 2;
+  console.log(x);
+}
+a(); // outputs 'undefined' then 2
+
+// Function a is essentially equivalent to:
+function a(){
+  var x; // the var declaration is hoisted up to the top and is set to undefined
+  console.log(x); // outputs undefined
+  x = 2; // the variable assignment stays. It is NOT hoisted.
+  console.log(x); // outputs 2
+}
+
+// Function example
+
+a(); // will run properly
+b(); // will fail with TypeError because b isn't assigned until line 4
+function a() { }
+var b = function() { }
+
+The above is equivalent to:
+function a() {} // the function statement is hoisted
+var b;
+a();
+b(); // = undefined(); invoking undefined raises an error
+b = function() {}
+</code></pre></p>
+<p>JS is always synchronous (executing code 1 line at a time and in-order) and single-threaded (only 1 command at a time). However, jQuery, event handlers and AJAX calls make use of callbacks which appear to run asynchronously. AJAX calls are delegated off to a different part of the browser (outside the JS engine) which is why they are run asynchronously. When the call returns, or if there&rsquo;s a user click, then these events fill up the Event Queue. The JS Engine only handles the Event Queue when the Execution Stack is empty. </p>
+<p><a name="scope-chain"></a></p>
+<h3 id="ii-scope-chain"><a name="user-content-ii-scope-chain" href="#ii-scope-chain" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>ii. Scope Chain</h3>
+<p>To find a variable when functions are running, JS looks further than just the variable environment of the currently executing context, it also looks at the outer environment (the environment to which this function is <em>lexically</em> attached). This process continues looking all the way down to the global environment in a process known as the __scope chain_.</p>
+<pre><code class="javascript">function b() {
+    console.log(myVar);
+}
+
+function a() {
+    var myVar = 2;
+    b();
+}
+
+var myVar = 1;
+a();
+
+// function b does not have a myVar variable so it looks to its outer environment
+// here, b is lexically attached to the global object, and myVar exists in the global environment
+// therefore, it logs '1'
+
+
+// JavaScript has function scope; functions get their own scope but other blocks
+// do not.
+if (true){
+    var i = 5;
+}
+i; // = 5 - not undefined as you'd expect in a block-scoped language
+</code></pre>
+
+<p><a name="closures"></a></p>
+<h3 id="iii-closures"><a name="user-content-iii-closures" href="#iii-closures" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>iii. Closures</h3>
+<p>One of JS&rsquo;s most powerful features is <strong>closures</strong>. Whenever a function is nested within another function, the inner function has access to all the outer function&rsquo;s variables even after the outer function exits.<br />
+After the outer function exits, it is popped off the Execution Stack, however if any of its variables are referenced in the inner function, then those variables are &ldquo;closed into&rdquo; the inner function&rsquo;s Execution Context and are accessible by the inner function.</p>
+<pre><code class="javascript">// Example 1
+
+function sayHelloInFiveSeconds(name){
+    var prompt = &quot;Hello, &quot; + name + &quot;!&quot;;
+    // Inner functions are put in the local scope by default, as if they were
+    // declared with `var`.
+    function inner(){
+        alert(prompt);
+    }
+    setTimeout(inner, 5000);
+    // setTimeout is asynchronous, so the sayHelloInFiveSeconds function will
+    // exit immediately, and setTimeout will call inner afterwards. However,
+    // because inner is &quot;closed over&quot; sayHelloInFiveSeconds, inner still has
+    // access to the `prompt` variable when it is finally called.
+}
+sayHelloInFiveSeconds(&quot;Adam&quot;); // will open a popup with &quot;Hello, Adam!&quot; in 5s
+
+
+// Example 2
+
+function buildFunctions() {
+    var arr = [];    
+    for (var i = 0; i &lt; 3; i++) {
+        arr.push(
+            function() {
+                console.log(i);   
+            }
+        )
+    }
+    return arr;
+}
+
+var fs = buildFunctions();
+fs[0]();
+fs[1]();
+fs[2]();
+// all 3 of these will log '3' because after buildFunctions finishes, i = 3
+// when fs[0..2] are invoked, they look for the value of i and they all see 3
+
+// Avoid creating functions in loops. It will lead to bad behaviour.
+</code></pre>
+
+<p><a name="callbacks"></a></p>
+<h3 id="iv-callbacks"><a name="user-content-iv-callbacks" href="#iv-callbacks" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>iv. Callbacks</h3>
+<p><strong>Callbacks</strong> are simply functions passed as arguments to other functions to be run when the other functions are finished.</p>
+<pre><code class="javascript">function alertWhenDone(callback){
+  // do some work
+  callback(); // invoke the callback right before exiting
+}
+
+alertWhenDone(function(){
+  alert(&quot;I am done!&quot;); 
+});
+
+// Callback making use of the JavaScript Timer
+setTimeout(function(){
+  alert(&quot;3 seconds have passed.&quot;);
+}, 3000);
+</code></pre>
+
+<p><a name="object-oriented"></a></p>
+<h2 id="5-object-oriented-js-and-prototypal-inheritance"><a name="user-content-5-object-oriented-js-and-prototypal-inheritance" href="#5-object-oriented-js-and-prototypal-inheritance" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>5. Object-Oriented JS and Prototypal Inheritance</h2>
+<p><a name="constructors"></a></p>
+<h3 id="i-function-constructors"><a name="user-content-i-function-constructors" href="#i-function-constructors" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>i. Function Constructors</h3>
+<p>When you call a function with the <code>new</code> keyword, a new object is created in memory, and is made available to the function via the <code>this</code> keyword. Functions designed to be called like that are called constructors.<br />
+<pre><code class="javascript">var MyConstructor = function(){
+    // public variables are declared using this
+    this.myNumber = 5;
+    // private variables are declared using var
+    var secretNum = 4;
+    // public getter for the private variable
+    this.getSecret = function(){ return secretNum };
+}
+myNewObj = new MyConstructor(); // = {myNumber: 5, secretNum: 4}
+myNewObj.myNumber; // = 5
+myNewObj.secretNum; // undefined
+myNewObj.getSecret(); // = 4
+
+</code></pre></p>
+<p><a name="prototypes"></p>
+<h3 id="ii-prototypes"><a name="user-content-ii-prototypes" href="#ii-prototypes" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>ii. Prototypes</h3>
+<p>Every JavaScript object has a &lsquo;prototype&rsquo; property, which is simply a reference to another object. When you go to access a property that doesn&rsquo;t exist on the actual object, the interpreter will look at its prototype. If it doesn&rsquo;t exist on the prototype, it&rsquo;ll look at the prototype&rsquo;s prototype. It will keep looking down this <strong>prototype chain</strong> until it hits the base object Object, which doesn&rsquo;t have a prototype. <br />
+<pre><code class="javascript">// Some JS implementations let you access an object's prototype on the magic
+// property `__proto__`. While this is useful for explaining prototypes it's not
+// part of the standard; we'll get to standard ways of using prototypes later.
+var myObj = {
+    myString: &quot;Hello world!&quot;
+};
+var myPrototype = {
+    meaningOfLife: 42,
+    myFunc: function(){
+        return this.myString.toLowerCase()
+    }
+};
+
+myObj.__proto__ = myPrototype;
+myObj.meaningOfLife; // = 42
+
+// This works for functions, too.
+myObj.myFunc(); // = &quot;hello world!&quot;
+
+// Of course, if your property isn't on your prototype, the prototype's
+// prototype is searched, and so on.
+myPrototype.__proto__ = {
+    myBoolean: true
+};
+myObj.myBoolean; // = true
+
+// There's no copying involved here; each object stores a reference to its
+// prototype. This means we can alter the prototype and our changes will be
+// reflected everywhere.
+myPrototype.meaningOfLife = 43;
+myObj.meaningOfLife; // = 43
+</code></pre></p>
+<p><a name="prototypal-inheritance"></a></p>
+<h3 id="iii-prototypal-inheritance-aka-setting-prototypes-of-new-objects"><a name="user-content-iii-prototypal-inheritance-aka-setting-prototypes-of-new-objects" href="#iii-prototypal-inheritance-aka-setting-prototypes-of-new-objects" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>iii. Prototypal Inheritance aka setting prototypes of new objects</h3>
+<p>Accessing <code>__proto__</code> is non-standard, and there are no standard ways to change the prototype of an existing object. However, there are two ways to create a new object with a given prototype.<br />
+<pre><code class="javascript">// The first is Object.create, which is a recent addition to JS, and therefore
+// not available in all implementations yet.
+var myObj = Object.create(myPrototype);
+myObj.meaningOfLife; // = 43
+</code></pre><br />
+Every JS function also has a property called &lsquo;prototype&rsquo;. When used as a normal function, the &lsquo;prototype&rsquo; property is not used. Only when functions are used as constructors with the <code>new</code> keyword, the &lsquo;prototype&rsquo; sets the prototype of the object being created.</p>
+<pre><code class="javascript">// Constructors have a property called prototype. This is *not* the prototype of
+// the constructor function itself; instead, it's the prototype that new objects
+// are given when they're created with that constructor and the new keyword.
+MyConstructor.prototype = {
+    myNumber: 5,
+    getMyNumber: function(){
+        return this.myNumber;
+    }
+};
+var myNewObj2 = new MyConstructor();
+myNewObj2.getMyNumber(); // = 5
+myNewObj2.myNumber = 6
+myNewObj2.getMyNumber(); // = 6
+</code></pre>
+
+<p><a name="built-in"> </a></p>
+<h3 id="iv-built-in-constructors"><a name="user-content-iv-built-in-constructors" href="#iv-built-in-constructors" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>iv. Built-In Constructors</h3>
+<p><pre><code class="javascript">// Built-in types like strings and numbers also have constructors that create
+// equivalent wrapper objects.
+var myNumber = 12;
+var myNumberObj = new Number(12);
+myNumber == myNumberObj; // = true
+
+// Except, they aren't exactly equivalent.
+typeof myNumber; // = 'number'
+typeof myNumberObj; // = 'object'
+myNumber === myNumberObj; // = false
+if (0){
+    // This code won't execute, because 0 is falsy.
+}
+if (Number(0)){
+    // This code *will* execute, because Number(0) is truthy.
+}
+
+// However, the wrapper objects and the regular builtins share a prototype, so
+// you can actually add functionality to a string, for instance.
+String.prototype.firstCharacter = function(){
+    return this.charAt(0);
+}
+&quot;abc&quot;.firstCharacter(); // = &quot;a&quot;
+</code></pre><br />
+<strong>Polyfilling</strong> takes advantage of the fact that we can modify the built-in prototypes to implement newer features of JavaScript in an older subset of JavaScript, so that they can be used in older environments such as outdated browsers.<br />
+<pre><code class="javascript">// For instance, Object.create isn't yet available in all
+// implementations, but we can still use it with this polyfill:
+if (Object.create === undefined){ // don't overwrite it if it exists
+    Object.create = function(proto){
+        // make a temporary constructor with the right prototype
+        var Constructor = function(){};
+        Constructor.prototype = proto;
+        // then use it to create a new, appropriately-prototyped object
+        return new Constructor();
+    }
+}
+
+</code></pre></p>
+<p><a name="bugs"> </a></p>
+<h2 id="6-bugs-and-error-handling"><a name="user-content-6-bugs-and-error-handling" href="#6-bugs-and-error-handling" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>6. Bugs and Error Handling</h2>
+<pre><code class="javascript">// You can opt in to tell the JS engine to be very strict in its interpretation
+// It must go at the top of the file to interpret the whole file in strict mode
+// Or at the top of a function, to make just that function strict
+&quot;use strict&quot;
+</code></pre>
+
+<p><a name="es6"></a></p>
+<h2 id="7-new-es6-stuff"><a name="user-content-7-new-es6-stuff" href="#7-new-es6-stuff" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>7. New ES6 stuff</h2>
+<h3 id="arrows"><a name="user-content-arrows" href="#arrows" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Arrows</h3>
+<p>Arrows are a function shorthands for anonymous functions used with the <code>=&gt;</code> syntax. They pass the outside lexical scope (ie. <code>this</code>) to the function.<br />
+<pre><code class="javascript">// Expression bodies
+var odds = evens.map(v =&gt; v + 1);
+var nums = evens.map((v, i) =&gt; v + i);
+
+// Statement bodies
+nums.forEach(v =&gt; {
+  if (v % 5 === 0)
+    fives.push(v);
+});
+
+// Lexical this
+var bob = {
+  _name: &quot;Bob&quot;,
+  _friends: [],
+  printFriends() {
+    this._friends.forEach(f =&gt;
+      console.log(this._name + &quot; knows &quot; + f));
+  }
+}
+</code></pre></p>
+<h3 id="classes"><a name="user-content-classes" href="#classes" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Classes</h3>
+<p>Object-oriented syntactic sugar for the prototypal inheritance pattern.</p>
+<pre><code class="javascript">class SkinnedMesh extends THREE.Mesh {
+  constructor(geometry, materials) {
+    super(geometry, materials);
+
+    this.idMatrix = SkinnedMesh.defaultMatrix();
+    this.bones = [];
+    this.boneMatrices = [];
+    //...
+  }
+  update(camera) {
+    //...
+    super.update();
+  }
+  get boneCount() {
+    return this.bones.length;
+  }
+  set matrixType(matrixType) {
+    this.idMatrix = SkinnedMesh[matrixType]();
+  }
+  static defaultMatrix() {
+    return new THREE.Matrix4();
+  }
+}
+</code></pre>
+
+<h3 id="string-interpolation"><a name="user-content-string-interpolation" href="#string-interpolation" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>String Interpolation</h3>
+<pre><code class="javascript">var name = &quot;Bob&quot;, time = &quot;today&quot;;
+`Hello ${name}, how are you ${time}?`
+</code></pre>
+
+<h3 id="let-and-const"><code>let</code> and <code>const</code></h3>
+<p><code>let</code> is like <code>var</code> except it is block-scoped. Variables declared with <code>const</code> can only be assigned once.<br />
+<pre><code class="javascript">if (1 &lt; 2) {
+  let i = 4;
+  const name = 'Jon Snow'
+}
+var i = 5; // error, i is already defined
+name = 'Samwell Tarly' // error, const can only be defined once
+</code></pre></p>
+<h3 id="generator"><a name="user-content-generator" href="#generator" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Generator</h3>
+<p>Functions that can be paused using the <code>yield</code> keyword and restarted from the outside. <code>yield _____</code> is called a &ldquo;yield expression&rdquo; which gets evaluated with whatever value we send in when we restart the generator. <code>yield</code> is making a request for a value.</p>
+<p><pre><code class="javascript">function* fibonacci() {
+  let a = 0, b = 1;
+
+  while(true) {
+    yield a;
+    [a, b] = [b, a + b];
+  }
+}
+
+// Enumerates the Fibonacci numbers
+for(let value of fibonacci()) {
+  console.log(value);
+}
+</code></pre><br />
+Generators are useful because they return (i.e. create) iterators. In turn, an iterator, an object with a <code>next</code> method, actually executes the body of generators. The <code>next</code> method, when repeatedly called, partially executes the corresponding generator, gradually advancing through the body until a <code>yield</code> keyword is hit.</p>
+<p><pre><code class="javascript">function* argumentsGenerator() {
+  for (let i = 0; i &lt; arguments.length; i += 1) {
+    yield arguments[i];
+  }
+}
+
+var argumentsIterator = argumentsGenerator('a', 'b', 'c');
+
+// Prints &quot;a b c&quot;
+console.log(
+    argumentsIterator.next().value,
+    argumentsIterator.next().value,
+    argumentsIterator.next().value
+);
+
+// ES6 has syntactic sugar for iteration.
+// Prints &quot;a&quot;, &quot;b&quot;, &quot;c&quot;
+for(let value of argumentsIterator) {
+  console.log(value);
+}
+</code></pre><br />
+The <code>next</code> method of an iterator returns an object with a <code>value</code> property and a <code>done</code> property, as long as the body of the corresponding generator has not <code>return</code>ed. The <code>value</code> property refers the value <code>yield</code>ed or <code>return</code>ed. The <code>done</code> property is <code>false</code> up until the generator body <code>return</code>s, at which point it is <code>true</code>. If the <code>next</code> method is called after <code>done</code> is <code>true</code>, an error is thrown.</p>
+<h3 id="maps-sets-weakmap-weakset"><a name="user-content-maps-sets-weakmap-weakset" href="#maps-sets-weakmap-weakset" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Maps, Sets, WeakMap, WeakSet</h3>
+<p>A Map is an object for which the keys can be any arbitrary object. A Set is a data structure which contains a finite set of elements, each occurring only once. WeakMaps and WeakSets provide leak-free object-key’d side tables. The JavaScript virtual machine periodically frees memory allocated to objects no longer in scope. An object is no longer in scope if there is no chain of references from the current scope leading to it.<br />
+<pre><code class="javascript">// Sets
+var s = new Set();
+s.add(&quot;hello&quot;).add(&quot;goodbye&quot;).add(&quot;hello&quot;);
+s.size === 2;
+s.has(&quot;hello&quot;) === true;
+
+// Maps
+var m = new Map();
+m.set(&quot;hello&quot;, 42);
+m.set(s, 34);
+m.get(s) == 34;
+
+// Weak Maps
+var wm = new WeakMap();
+wm.set(s, { extra: 42 });
+wm.size === undefined
+
+// Weak Sets
+var ws = new WeakSet();
+ws.add({ data: 42 });
+// Because the added object has no other references, it will not be held in the set
+</code></pre></p>
+<h3 id="promises"><a name="user-content-promises" href="#promises" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Promises</h3>
+<p>Promises are a library for asynchronous programming. Promises are a first class representation of a value that may be made available in the future. A Promise is in one of these states:<br />
+- pending: initial state, not fulfilled or rejected.<br />
+- fulfilled: successful operation<br />
+- rejected: failed operation.<br />
+- settled: the Promise is either fulfilled or rejected, but not pending.</p>
+<pre><code class="javascript">var someAsyncThing = function() {
+  return new Promise(function(resolve, reject) {
+    // this will throw, x does not exist
+    resolve(x + 2);
+  });
+};
+
+someAsyncThing().then(function() {
+  console.log('everything is great');
+}).catch(function(error) {
+  console.log('oh no', error);
+});
+</code></pre>
+
+<h3 id="modules"><a name="user-content-modules" href="#modules" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Modules</h3>
+<p><pre><code class="javascript">// lib/math.js
+export function sum(x, y) {
+  return x + y;
+}
+export var pi = 3.141593;
+</code></pre><br />
+<pre><code class="javascript">// app.js
+import * as math from &quot;lib/math&quot;;
+alert(&quot;2π = &quot; + math.sum(math.pi, math.pi));
+</code></pre><br />
+<pre><code class="javascript">// otherApp.js
+import {sum, pi} from &quot;lib/math&quot;;
+alert(&quot;2π = &quot; + sum(pi, pi));
+</code></pre></p>
+<p>TODO: Proxies, Symbol</p></article></body></html>
