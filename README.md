@@ -1006,9 +1006,4 @@ var origin = proxy.create(target);
 origin.a = 37; // operation forwarded to the target
 alert('target.a = ' + target.a); // The operation has been properly forwarded
 ```
-
-TODO: Proxies, Symbol
-
-
-
-TODO: Proxies, Symbol
+TODO: Symbol
