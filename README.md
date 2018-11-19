@@ -986,4 +986,29 @@ import {sum, pi} from "lib/math";
 alert("2π = " + sum(pi, pi));
 ```
 
+### Proxy
+
+Proxy object is used to define custom behavior for fundamental operations (e.g. property lookup, assignment, enumeration, function invocation, etc).
+
+```javascript
+// lib/proxy.js
+export function create(target) {
+  var target = {};
+  return new Proxy(target, {});
+}
+```
+
+```javascript
+// app.js
+import * as proxy from 'lib/proxy';
+var target = {};
+var origin = proxy.create(target);
+origin.a = 37; // operation forwarded to the target
+alert('target.a = ' + target.a); // The operation has been properly forwarded
+```
+
+TODO: Proxies, Symbol
+
+
+
 TODO: Proxies, Symbol
