@@ -616,6 +616,29 @@ switch (grade) {
 }
 
 ```
+__FOREACH__
+```javascript
+
+cars.forEach(function(car, index, array){
+  console.log(`${index} : ${car}`);
+  console.log(array);
+});
+```
+__MAP__
+```javascript
+const users  = [
+  {id: 1, name:'John'},
+  {id: 2, name: 'Sara'},
+  {id: 3, name: 'Karen'},
+  {id: 4, name: 'Steve'}
+];
+
+const ids = users.map(function(user){
+  return user.id;
+});
+
+console.log(ids);
+```
 
 <a name="syntax"></a>
 ## 2. More Basic Syntax 
@@ -678,29 +701,81 @@ JSON.stringify(myObj);
 JSON.parse(json_stuff);
 ```
 
+__Array of Objects__
+```javascript
+let journal = [
+    {events:['work', 'touched tree', 'pizza', 'running', 'television'], squirrel:false},
+    {events:['work', 'ice cream', 'cauliflower', 'running', 'television'], squirrel:true},
+];
+```
+
 <a name="functions"></a>
 ### ii. Functions 
-Functions are special kinds of objects! Functions can have their own methods and properties just like other objects, but they're rarely used in that way. 
+The function's code is executed by the invocation operator `()`.
 
-Remember, functions in JS are first-class. Meaning they can be assigned and passed just like any other variable can.
-
-Functions are special in that they have an optional name property and a code property (which is the body of the function that actually does stuff). The function's code is executed by the invocation operator `()`.
-
+__Function Declaration__
 ```javascript
-// JavaScript functions are declared with the `function` keyword.
-// This is a function statement
-function myFunction(thing){
-    return thing.toUpperCase();
+function greet(firstName = 'John', lastName = 'Doe'){
+  // if(typeof firstName === 'undefined'){firstName = 'John'}
+  // if(typeof lastName === 'undefined'){lastName = 'Doe'}
+  //console.log('Hello');
+  return 'Hello ' + firstName + ' ' + lastName;
+}
+```
+__FUNCTION EXPRESIONS__
+```javascript
+const square = function(x = 3){
+  return x*x;
+};
+```
+__IMMIDIATLEY INVOKABLE FUNCTION EXPRESSIONS - IIFEs__
+```javascript
+(function(){
+  console.log('IIFE Ran..');
+})();
+
+(function(name){
+  console.log('Hello '+ name);
+})('Brad');
+```
+__Property Methods__
+```javascript
+const todo = {
+  add: function(){
+    console.log('Add todo..');
+  },
+  edit: function(id){
+    console.log(`Edit todo ${id}`);
+  }
 }
 
-// This is a function expression
-var makeUpperCase = function() {
-    return think.toUpperCase();
+todo.delete = function(){
+  console.log('Delete todo...');
 }
 
-// Note that the value to be returned must start on the same line as the
-// `return` keyword, otherwise you'll always return `undefined` due to
-// automatic semicolon insertion. Watch out for this when using Allman style.
+todo.add();
+todo.edit(22);
+todo.delete();
+```
+
+__triple-dot Operator or Rest Parameter__
+```javascript
+function max(...numbers) {
+    let result = -Infinity;
+    for(let number of numbers){
+        if(number > result) result = number;
+    }
+    return result;
+}
+console.log(max(4,1,9,-2));
+let numbers = [5, 1, 7];
+console.log(max(...numbers));
+```
+
+Note that the value to be __returned must start on the same line__ as the
+__`return` keyword__, otherwise you'll always return `undefined` due to
+automatic semicolon insertion. Watch out for this when using Allman style.
+```javascript
 function myFunction()
 {
     return // <- semicolon automatically inserted here
@@ -709,53 +784,9 @@ function myFunction()
     }
 }
 myFunction(); // = undefined
-
-// JavaScript functions are first class objects, so they can be reassigned to
-// different variable names and passed to other functions as arguments - for
-// example, when supplying an event handler:
-function myFunction(){
-    // this code will be called in 5 seconds' time
-}
-setTimeout(myFunction, 5000);
-// Note: setTimeout isn't part of the JS language, but is provided by browsers
-// and Node.js.
-```
-Function objects don't even have to be declared with a name - you can write an __anonymous function__ definition directly into the arguments of another.
-
-``` javascript
-setTimeout(function(){
-    console.log("It's been 5 seconds!");
-    // this code will be called in 5 seconds time
-}, 5000);
 ```
 
-This has led to a common pattern of __"immediately-executing anonymous functions"__, which prevent temporary variables from leaking into the global scope. The function expression is wrapped in parenthesis and then is invoked using `()`
-
-``` javascript
-(function(){
-    var temporary = 5;
-})();
-temporary; // raises ReferenceError
-permanent; // = 10
-```
-
-An important distinction: primitives __Pass by Value__ while objects __Pass by Reference__
-```javascript
-// Primitives are passed by value
-var i = 2;
-function double(i){  i*2;  } // another i is created with the same value in a different execution context
-double(i);
-console.log(i); // still 2 
-
-// Objects (including functions) are passed by reference
-var obj = { hero: "Superman" };
-function bestSuperhero(obj){
-  obj.hero = "Batman";
-}
-bestSuperhero(obj);
-console.log(obj.hero); // = "Batman"
-```
-The `this` keyword within methods, always refers to the object that the method is tied to. However, if the method has an inner function, its `this` refers to the global object. Some regard this as a bug in JS, so the good practice is to create and use a variable called `self`.
+The __`this` keyword within methods, always refers to the object that the method is tied to.__ However, if the method has an inner function, its `this` refers to the global object. Some regard this as a bug in JS, so the good practice is to create and use a variable called `self`.
 
 ```javascript
 var c = {
@@ -774,6 +805,67 @@ var c = {
     }
 }
 c.log(); // outputs "Updated again! The c object"
+```
+
+<a name="arrow-functions"></a>
+### Arrow Functions
+```javascript
+// An empty arrow function returns undefined
+let empty = () => {};
+
+(() => 'foobar')(); 
+// Returns "foobar"
+// (this is an Immediately Invoked Function Expression 
+// see 'IIFE' in glossary)
+
+var simple = a => a > 15 ? 15 : a; 
+simple(16); // 15
+simple(10); // 10
+
+let max = (a, b) => a > b ? a : b;
+
+// Easy array filtering, mapping, ...
+
+var arr = [5, 6, 13, 0, 1, 18, 23];
+
+var sum = arr.reduce((a, b) => a + b);  
+// 66
+
+var even = arr.filter(v => v % 2 == 0); 
+// [6, 0, 18]
+
+var double = arr.map(v => v * 2);       
+// [10, 12, 26, 0, 2, 36, 46]
+
+// More concise promise chains
+promise.then(a => {
+  // ...
+}).then(b => {
+  // ...
+});
+
+// Parameterless arrow functions that are visually easier to parse
+setTimeout( () => {
+  console.log('I happen sooner');
+  setTimeout( () => {
+    // deeper code
+    console.log('I happen later');
+  }, 1);
+}, 1);
+```
+
+__Example__
+__rest parameters__
+``javascript
+function noisy(f) {
+    return (...args) => {
+      console.log("calling with ",args);
+      let result = f(...args);
+      console.log("Called with", args, "returned", result);
+      return result;
+    }
+}
+console.log(noisy(Math.min)(3,2,1));
 ```
 
 <a name="bind"></a>
