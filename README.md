@@ -20,13 +20,14 @@ Here's what all those big words above mean:
 1. [Basics](#basics)
     1. [Primitives](#primitives)
     2. [Operators](#operators)
-2. [More Basic Syntax](#syntax)
+2. [Javascript Language Fundamentals](#syntax)
     1. [Variables](#variables)
     2. [Data Types](#data-types)
     3. [Math Objects and Methods](#math-objects)
     4. [Strings and String Methods](#strings)
-    2. [Arrays](#arrays)
-    3. [Logic and Control Structures](#logic)
+    5. [Arrays](#arrays)
+    6. [Dates](#dates)
+    7. [Logic and Control Structures](#logic)
 3. [Objects and Functions](#objects-and-functions)
     1. [Objects](#objects)
     2. [Functions](#functions)
@@ -272,7 +273,7 @@ a += b              // a = a + b (works with - * %...)
 a && b              // logical and
 a || b              // logical or
 ```
-<a name="variables"></a>
+<a name="data-types"></a>
 ### ii. Data Types 
 ```javascript
 var age = 18;                           // number 
@@ -450,6 +451,50 @@ x.sort(function(a, b){return 0.5 - Math.random()});     // random order sort
 ```
 ```
 concat, copyWithin, every, fill, filter, find, findIndex, forEach, indexOf, isArray, join, lastIndexOf, map, pop, push, reduce, reduceRight, reverse, shift, slice, some, sort, splice, toString, unshift, valueOf
+```
+
+<a name="dates"> </a>
+### ii. Dates
+```javascript
+Tue Dec 25 2018 11:52:46 GMT+0530 (India Standard Time)
+var d = new Date();
+1545718966111 miliseconds passed since 1970
+Number(d) 
+Date("2017-06-23");                 // date declaration
+Date("2017");                       // is set to Jan 01
+Date("2017-06-23T12:00:00-09:45");  // date - time YYYY-MM-DDTHH:MM:SSZ
+Date("June 23 2017");               // long date format
+Date("Jun 23 2017 07:45:00 GMT+0100 (Tokyo Time)"); // time zone
+```
+#### Get Times
+```javascript
+var d = new Date();
+a = d.getDay();     // getting the weekday
+
+getDate();          // day as a number (1-31)
+getDay();           // weekday as a number (0-6)
+getFullYear();      // four digit year (yyyy)
+getHours();         // hour (0-23)
+getMilliseconds();  // milliseconds (0-999)
+getMinutes();       // minutes (0-59)
+getMonth();         // month (0-11)
+getSeconds();       // seconds (0-59)
+getTime();          // milliseconds since 1970
+```
+
+#### Set Times
+```javascript
+var d = new Date();
+d.setDate(d.getDate() + 7); // adds a week to a date
+
+setDate();          // day as a number (1-31)
+setFullYear();      // year (optionally month and day)
+setHours();         // hour (0-23)
+setMilliseconds();  // milliseconds (0-999)
+setMinutes();       // minutes (0-59)
+setMonth();         // month (0-11)
+setSeconds();       // seconds (0-59)
+setTime();          // milliseconds since 1970)
 ```
 
 <a name="logic"></a>
