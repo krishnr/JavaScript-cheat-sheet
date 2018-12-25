@@ -728,7 +728,9 @@ const square = function(x = 3){
   return x*x;
 };
 ```
-__IMMIDIATLEY INVOKABLE FUNCTION EXPRESSIONS - IIFEs__
+
+### <a name="immediate-function">IMMIDIATLEY INVOKABLE FUNCTION EXPRESSIONS - IIFEs</a>
+
 ```javascript
 (function(){
   console.log('IIFE Ran..');
@@ -738,7 +740,10 @@ __IMMIDIATLEY INVOKABLE FUNCTION EXPRESSIONS - IIFEs__
   console.log('Hello '+ name);
 })('Brad');
 ```
-__Property Methods__
+
+<a name="property-method"></a>
+### __Property Methods__
+
 ```javascript
 const todo = {
   add: function(){
@@ -758,7 +763,9 @@ todo.edit(22);
 todo.delete();
 ```
 
-__triple-dot Operator or Rest Parameter__
+<a name="triple-dot"></a>
+### __triple-dot Operator or Rest Parameter__ 
+
 ```javascript
 function max(...numbers) {
     let result = -Infinity;
@@ -856,7 +863,7 @@ setTimeout( () => {
 
 __Example__
 __rest parameters__
-``javascript
+```javascript
 function noisy(f) {
     return (...args) => {
       console.log("calling with ",args);
