@@ -22,6 +22,9 @@ Here's what all those big words above mean:
     2. [Operators](#operators)
 2. [More Basic Syntax](#syntax)
     1. [Variables](#variables)
+    2. [Data Types](#data-types)
+    3. [Math Objects and Methods](#math-objects)
+    4. [Strings and String Methods](#strings)
     2. [Arrays](#arrays)
     3. [Logic and Control Structures](#logic)
 3. [Objects and Functions](#objects-and-functions)
@@ -204,37 +207,249 @@ x instanceof Function // = false
 <a name="variables"></a>
 ### i. Variables 
 ```javascript
-// Variables are declared with the `var` keyword. JavaScript is dynamically
-// typed, so you don't need to specify type. Assignment uses a single `=`
-// character.
-var someVar = 5;
-
-// if you leave the var keyword off, you won't get an error...
-someOtherVar = 10;
-
-// ...but your variable will be created in the global scope, not in the scope
-// you defined it in.
-
-// Variables declared without being assigned to are set to undefined.
-var someThirdVar; // = undefined
+var a;                          // variable
+var b = "init";                 // string
+var c = "Hi" + " " + "Joe";     // = "Hi Joe"
+var d = 1 + 2 + "3";            // = "33"
+var e = [2,3,5,8];              // array
+var f = false;                  // boolean
+var g = /()/;                   // RegEx
+var h = function(){};           // function object
+const PI = 3.14;                // constant
+var a = 1, b = 2, c = a + b;    // one line
+let z = 'zzz';                  // block scope local variable
 ```
+#### Strict Mode
+```
+"use strict";   // Use strict mode to write secure code
+x = 1;          // Throws an error because variable is not declared
+```
+
+#### Values
+```
+false, true                     // boolean
+18, 3.14, 0b10011, 0xF6, NaN    // number
+"flower", 'John'                // string
+undefined, null , Infinity      // special
+```
+
+#### Operators
+```javascript
+a = b + c - d;      // addition, substraction
+a = b * (c / d);    // multiplication, division
+x = 100 % 48;       // modulo. 100 / 48 remainder = 4
+a++; b--;           // postfix increment and decrement
+```
+
+#### Bitwise Operators
+```javascript
+&	AND 	                     //5 & 1 (0101 & 0001)	1 (1)
+|	OR 	                       //5 | 1 (0101 | 0001)	5 (101)
+~	NOT 	                     //~ 5 (~0101)	10 (1010)
+^	XOR 	                     //5 ^ 1 (0101 ^ 0001)	4 (100)
+<<	left shift 	             //5 << 1 (0101 << 1)	10 (1010)
+>>	right shift 	           //5 >> 1 (0101 >> 1)	2 (10)
+>>>	zero fill right shift 	 //5 >>> 1 (0101 >>> 1)	2 (10)
+```
+
+#### Arithmetic
+```javascript
+a * (b + c)         // grouping
+person.age          // member
+person[age]         // member
+!(a == b)           // logical not
+a != b              // not equal
+typeof a            // type (number, object, function...)
+x << 2  x >> 3      // minary shifting
+a = b               // assignment
+a == b              // equals
+a != b              // unequal
+a === b             // strict equal
+a !== b             // strict unequal
+a < b   a > b       // less and greater than
+a <= b  a >= b      // less or equal, greater or eq
+a += b              // a = a + b (works with - * %...)
+a && b              // logical and
+a || b              // logical or
+```
+<a name="variables"></a>
+### ii. Data Types 
+```javascript
+var age = 18;                           // number 
+var name = "Jane";                      // string
+var name = {first:"Jane", last:"Doe"};  // object
+var truth = false;                      // boolean
+var sheets = ["HTML","CSS","JS"];       // array
+var a; typeof a;                        // undefined
+var a = null;                           // value null
+```
+#### Objects
+```javascript
+var student = {                 // object name
+    firstName:"Jane",           // list of properties and values
+    lastName:"Doe",
+    age:18,
+    height:170,
+    fullName : function() {     // object function
+       return this.firstName + " " + this.lastName;
+    }
+}; 
+student.age = 19;           // setting value
+student[age]++;             // incrementing
+name = student.fullName();  // call object function
+```
+
+
+<a name="math-objects"></a>
+### iii. Math Objects and Methods 
+
+```javascript
+var pi = 3.141;
+pi.toFixed(0);          // returns 3
+pi.toFixed(2);          // returns 3.14 - for working with money
+pi.toPrecision(2)       // returns 3.1
+pi.valueOf();           // returns number
+Number(true);           // converts to number
+Number(new Date())      // number of milliseconds since 1970
+parseInt("3 months");   // returns the first number: 3
+parseFloat("3.5 days"); // returns 3.5
+Number.MAX_VALUE        // largest possible JS number
+Number.MIN_VALUE        // smallest possible JS number
+Number.NEGATIVE_INFINITY// -Infinity
+Number.POSITIVE_INFINITY// Infinity
+```
+
+#### Math.objects
+
+```javascript
+var pi = Math.PI;       // 3.141592653589793
+Math.round(4.4);        // = 4 - rounded
+Math.round(4.5);        // = 5
+Math.pow(2,8);          // = 256 - 2 to the power of 8
+Math.sqrt(49);          // = 7 - square root 
+Math.abs(-3.14);        // = 3.14 - absolute, positive value
+Math.ceil(3.14);        // = 4 - rounded up
+Math.floor(3.99);       // = 3 - rounded down
+Math.sin(0);            // = 0 - sine
+Math.cos(Math.PI);      // OTHERS: tan,atan,asin,acos,
+Math.min(0, 3, -2, 2);  // = -2 - the lowest value
+Math.max(0, 3, -2, 2);  // = 3 - the highest value
+Math.log(1);            // = 0 natural logarithm 
+Math.exp(1);            // = 2.7182pow(E,x)
+Math.random();          // random number between 0 and 1
+Math.floor(Math.random() * 5) + 1;  // random integer, from 1 to 5
+```
+
+<a name="strings"></a>
+### iv. Strings and Methods 
+
+```javascript
+var abc = "abcdefghijklmnopqrstuvwxyz";
+var esc = 'I don\'t \n know';   // \n new line
+var len = abc.length;           // string length
+abc.indexOf("lmno");            // find substring, -1 if doesn't contain 
+abc.lastIndexOf("lmno");        // last occurance
+abc.slice(3, 6);                // cuts out "def", negative values count from behind
+abc.replace("abc","123");       // find and replace, takes regular expressions
+abc.toUpperCase();              // convert to upper case
+abc.toLowerCase();              // convert to lower case
+abc.concat(" ", str2);          // abc + " " + str2
+abc.charAt(2);                  // character at index: "c"
+abc[2];                         // unsafe, abc[2] = "C" doesn't work
+abc.charCodeAt(2);              // character code at index: "c" -> 99
+abc.split(",");                 // splitting a string on commas gives an array
+abc.split("");                  // splitting on characters
+128.toString(16);               // number to hex(16), octal (8) or binary (2)
+// Escaping
+val =  'That\'s awesome, I can\'t wait';
+const firstName = 'William';
+val = firstName[2];
+
+// indexOf()
+val = firstName.indexOf('l');
+val = firstName.lastIndexOf('l');
+
+// charAt()
+val = firstName.charAt('2');
+// Get last char
+val = firstName.charAt(firstName.length - 1);
+
+// substring()
+val = firstName.substring(0, 4);
+
+// slice()
+val = firstName.slice(0,4);
+val = firstName.slice(-3);
+
+const str = 'Hello there my name is Brad';
+// replace()
+val = str.replace('Brad', 'Jack');
+
+// includes()
+val = str.includes('foo');
+```
+
+<a name="template-string"></a>
+### iv. Template String
+```javascript
+const name = 'John';
+const age = 31;
+const job = 'Web Developer';
+const city = 'Miami';
+let html;
+
+// With template strings (es6)
+html = `
+  <ul>
+    <li>Name: ${name}</li>
+    <li>Age: ${age}</li>
+    <li>Job: ${job}</li>
+    <li>City: ${city}</li>
+    <li>${2 + 2}</li>
+    <li>${hello()}</li>
+    <li>${age > 30 ? 'Over 30' : 'Under 30'}</li>
+  </ul>
+`;
+
+document.body.innerHTML = html;
+```
+       
 
 <a name="arrays"> </a>
 ### ii. Arrays 
 ```javascript
-// Arrays are ordered lists of values, of any type.
-var myArray = ["Hello", 45, true];
+var dogs = ["Bulldog", "Beagle", "Labrador"]; 
+var dogs = new Array("Bulldog", "Beagle", "Labrador");  // declaration
 
-// Their members can be accessed using the square-brackets subscript syntax.
-// Array indices start at zero.
-myArray[1]; // = 45
+alert(dogs[1]);             // access value at index, first item being [0]
+dogs[0] = "Bull Terier";    // change the first item
 
-// Arrays are mutable and of variable length (dynamically sized arrays)
-myArray.push("World"); // adds to the end
-myArray.length; // = 4
-
-// Add/Modify at specific index
-myArray[3] = "Hello";
+for (var i = 0; i < dogs.length; i++) {     // parsing with array.length
+    console.log(dogs[i]);
+}
+```
+#### Array Methods
+```javascript
+dogs.toString();                        // convert to string: results "Bulldog,Beagle,Labrador"
+dogs.join(" * ");                       // join: "Bulldog * Beagle * Labrador"
+dogs.pop();                             // remove last element
+dogs.push("Chihuahua");                 // add new element to the end
+dogs[dogs.length] = "Chihuahua";        // the same as push
+dogs.shift();                           // remove first element
+dogs.unshift("Chihuahua");              // add new element to the beginning
+delete dogs[0];                         // change element to undefined (not recommended)
+dogs.splice(2, 0, "Pug", "Boxer");      // add elements (where, how many to remove, element list)
+var animals = dogs.concat(cats,birds);  // join two arrays (dogs followed by cats and birds)
+dogs.slice(1,4);                        // elements from [1] to [4-1]
+dogs.sort();                            // sort string alphabetically
+dogs.reverse();                         // sort string in descending order
+x.sort(function(a, b){return a - b});   // numeric sort
+x.sort(function(a, b){return b - a});   // numeric descending sort
+highest = x[0];                         // first item in sorted array is the lowest (or highest) value
+x.sort(function(a, b){return 0.5 - Math.random()});     // random order sort
+```
+```
+concat, copyWithin, every, fill, filter, find, findIndex, forEach, indexOf, isArray, join, lastIndexOf, map, pop, push, reduce, reduceRight, reverse, shift, slice, some, sort, splice, toString, unshift, valueOf
 ```
 
 <a name="logic"></a>
