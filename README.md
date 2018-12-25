@@ -105,26 +105,7 @@ false;
 'abc';
 "Hello, world";
 
-// You can access characters in a string with `charAt`
-"This is a string".charAt(0);  // = 'T'
 
-// ...or use `substring` to get larger pieces.
-"Hello world".substring(0, 5); // = "Hello"
-"Hello world".slice(0, 5); // does the same thing
-"Hello world".substr(0, 5); // yet again
-
-// `length` is a property, so don't use ().
-"Hello".length; // = 5
-
-// Searching strings
-"Mary had a little lamb".search("had"); // returns 5
-"Mary had a little lamb".indexOf("zebra"); // returns -1
-
-// String to a character array
-"one two three four".split(" "); // ['one', 'two', 'three', 'four']
-
-// String replace
-"happy birthday henry!".replace("h", "H"); // "Happy birthday Henry!"
 
 // ES6 also introduces Symbol as a new primitive type
 // But I'll add that on here once I actually figure out what it is
@@ -252,7 +233,7 @@ for (let index in str) {
 ```
 
 <a name="of"></a>
-#### The in Operator
+#### The of Operator
    __Use for…of to iterate over the values in an iterable, like an array for example:
    Strings are also an iterable type, so you can use for…of on strings:__
 ```javascript
