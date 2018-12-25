@@ -729,8 +729,8 @@ const square = function(x = 3){
 };
 ```
 
-### <a name="immediate-function">IMMIDIATLEY INVOKABLE FUNCTION EXPRESSIONS - IIFEs</a>
-
+### <a name="immediate-function"></a>
+__IMMIDIATLEY INVOKABLE FUNCTION EXPRESSIONS - IIFEs__
 ```javascript
 (function(){
   console.log('IIFE Ran..');
