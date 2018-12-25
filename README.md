@@ -21,6 +21,7 @@ Here's what all those big words above mean:
     1. [Primitives](#primitives)
     2. [Operators](#operators)
         -> [The in Operator](#in)
+        -> [The of Operator](#of)
 2. [Javascript Language Fundamentals](#syntax)
     1. [Variables](#variables)
     2. [Data Types](#data-types)
@@ -206,8 +207,8 @@ x instanceof Function // = false
 
 <a name="in"></a>
 #### The in Operator 
-   The in operator returns true if the specified property is in the specified object, otherwise false:
-   #####Use for…in to iterate over the properties of an object (the object keys):
+   ___The in operator returns true if the specified property is in the specified object, otherwise false:
+   Use for…in to iterate over the properties of an object (the object keys):___
 ```javascript
 // Arrays
 var cars = ["Saab", "Volvo", "BMW"];
@@ -238,7 +239,7 @@ for (let key in oldCar) {
 }
 
 ```
-   #####You can also use for…in to iterate over the index values of an iterable like an array or a string:
+   __You can also use for…in to iterate over the index values of an iterable like an array or a string:__
 ```javascript
 let str = 'Turn the page';
 
@@ -252,8 +253,8 @@ for (let index in str) {
 
 <a name="of"></a>
 #### The in Operator
-   #####Use for…of to iterate over the values in an iterable, like an array for example:
-   #####Strings are also an iterable type, so you can use for…of on strings:
+   __Use for…of to iterate over the values in an iterable, like an array for example:
+   Strings are also an iterable type, so you can use for…of on strings:__
 ```javascript
 let animals = ['🐔', '🐷', '🐑', '🐇'];
 let names = ['Gertrude', 'Henry', 'Melvin', 'Billy Bob'];
