@@ -296,10 +296,6 @@ switch (grade) {
 
 ```
 
-<a name="syntax"></a>
-## 2. More Basic Syntax 
-<a name="variables"></a>
-
 
 <a name="objects-and-functions"></a>
 ## 3. Objects and Functions 
