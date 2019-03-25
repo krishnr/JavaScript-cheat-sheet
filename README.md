@@ -315,8 +315,7 @@ var myObj = {key1: "Hello", key2: "World"};
 // or using the Object constructor:
 var myObj = new Object();
 
-// Keys are 
-, but quotes aren't required if they're a valid
+// Keys are strings, but quotes aren't required if they're a valid
 // JavaScript identifier. Values can be any type including other objects.
 var myObj = {myKey: "myValue", "my other key": 4};
 
