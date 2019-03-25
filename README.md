@@ -113,6 +113,7 @@ false;
 // Searching strings
 "Mary had a little lamb".search("had"); // returns 5
 "Mary had a little lamb".indexOf("zebra"); // returns -1
+"Mary had a little lamb".includes("had"); //returns true (ES7). includes() will return true if the parameter provided is in the string, and false otherwise.
 
 // String to a character array
 "one two three four".split(" "); // ['one', 'two', 'three', 'four']
@@ -235,6 +236,12 @@ myArray.length; // = 4
 
 // Add/Modify at specific index
 myArray[3] = "Hello";
+
+//ES7 includes() can be used with arrays to check for the presence of a value. it is case sensitive
+let names = ["Samuel", "Hamilton", "Eric"];
+names.includes("Samuel"); //true
+names.includes("samuel"); //false
+names.includes("John"); //false
 ```
 
 <a name="logic"></a>
@@ -308,7 +315,8 @@ var myObj = {key1: "Hello", key2: "World"};
 // or using the Object constructor:
 var myObj = new Object();
 
-// Keys are strings, but quotes aren't required if they're a valid
+// Keys are 
+, but quotes aren't required if they're a valid
 // JavaScript identifier. Values can be any type including other objects.
 var myObj = {myKey: "myValue", "my other key": 4};
 
