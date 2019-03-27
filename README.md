@@ -72,6 +72,7 @@ doStuff();
 0.1 + 0.2; // = 0.30000000000000004 (funky floating point arithmetic--be careful!)
 8 - 1; // = 7
 10 * 2; // = 20
+10 ** 2; // =100 (10 raised to the power 2) same as Math.pow(10, 2)
 35 / 5; // = 7
 
 // Including uneven division.
